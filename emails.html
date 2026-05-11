@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theos Analytics — Outreach Email Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#09090b; --ink2:#27272a; --muted:#71717a; --faint:#a1a1aa;
+    --rule:#e4e4e7; --bg:#fafaf9; --surface:#fff;
+    --navy:#0f1f3d; --navy2:#1a3060;
+    --gold:#b8972a; --gold-lt:#f5edd6;
+    --teal:#0d7377; --red:#8b1a1a;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}
+  body{background:var(--bg);font-family:'Instrument Sans',sans-serif;font-weight:300;color:var(--ink);padding:0;}
+
+  /* Layout */
+  .page{max-width:900px;margin:0 auto;padding:56px 48px;}
+
+  /* Brand bar */
+  .brand-bar{background:var(--navy);padding:18px 48px;display:flex;align-items:center;gap:12px;}
+  .b-icon{width:30px;height:30px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;}
+  .b-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:white;}
+  .b-name span{color:var(--gold);}
+  .b-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-left:auto;}
+
+  /* Headers */
+  h1{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:10px;}
+  h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .intro{font-size:14px;color:var(--muted);max-width:620px;line-height:1.8;margin-bottom:52px;}
+  .section-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+  .section-tag::before{content:'';display:block;width:18px;height:1px;background:var(--gold);}
+  .email-purpose{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:28px;padding-left:14px;border-left:2px solid var(--rule);}
+
+  /* Subject lines */
+  .subject-block{margin-bottom:20px;}
+  .subject-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);margin-bottom:8px;}
+  .subject-row{background:var(--navy);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
+  .subject-row:last-child{margin-bottom:0;}
+  .s-text{font-size:13.5px;color:white;font-family:'Instrument Sans',sans-serif;}
+  .s-rate{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);flex-shrink:0;margin-left:20px;text-align:right;}
+
+  /* Email card */
+  .email-block{margin-bottom:24px;}
+  .email-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;}
+  .email-label.navy{background:var(--navy);color:rgba(255,255,255,.7);}
+  .email-label.gold{background:var(--gold);color:var(--ink);}
+  .email-label.dark{background:#111;color:rgba(255,255,255,.6);}
+  .email-meta{padding:14px 22px;background:#f4f4f0;border:1px solid var(--rule);border-top:none;}
+  .m-row{display:flex;gap:8px;margin-bottom:3px;font-size:12px;}
+  .m-field{font-family:'DM Mono',monospace;color:var(--faint);min-width:55px;font-size:11px;}
+  .m-val{color:var(--ink2);}
+  .email-body{
+    padding:32px 36px;font-size:13.5px;color:var(--ink2);line-height:2;
+    white-space:pre-wrap;font-family:'Instrument Sans',sans-serif;
+    border:1px solid var(--rule);border-top:none;background:var(--surface);
+  }
+  .ann-bar{background:var(--gold-lt);border:1px solid rgba(184,151,42,.2);border-top:none;padding:16px 20px;display:flex;flex-wrap:wrap;gap:16px;}
+  .ann{font-size:11.5px;color:var(--navy2);display:flex;align-items:flex-start;gap:7px;}
+  .ann::before{content:'✓';color:var(--teal);font-size:10px;flex-shrink:0;margin-top:2px;font-family:'DM Mono',monospace;}
+
+  .divider{border:none;border-top:1px solid var(--rule);margin:52px 0;}
+  .section-wrap{margin-bottom:60px;}
+
+  /* Tips */
+  .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;}
+  .tip{border:1px solid var(--rule);padding:22px 20px;background:var(--surface);}
+  .tip-n{font-family:'DM Mono',monospace;font-size:24px;font-weight:300;color:var(--rule);line-height:1;margin-bottom:10px;}
+  .tip-t{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:6px;}
+  .tip-d{font-size:12px;color:var(--muted);line-height:1.65;}
+
+  /* Sequence diagram */
+  .sequence{display:flex;gap:0;margin:16px 0;}
+  .seq-step{flex:1;text-align:center;padding:14px 8px;background:var(--bg);border-right:2px solid white;position:relative;}
+  .seq-step:last-child{border-right:none;}
+  .seq-day{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);margin-bottom:4px;letter-spacing:.06em;}
+  .seq-act{font-size:12px;font-weight:500;color:var(--navy);}
+  .seq-note{font-size:10.5px;color:var(--muted);margin-top:3px;}
+
+  /* Close banner */
+  .close-banner{background:var(--navy);color:white;padding:36px 40px;margin-top:52px;}
+  .close-banner-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;}
+  .close-q{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:white;line-height:1.35;max-width:500px;}
+  .close-q em{color:var(--gold);}
+  .close-cta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);flex-shrink:0;}
+
+  @media(max-width:700px){
+    .page{padding:32px 20px;}
+    .brand-bar{padding:14px 20px;}
+    .tips-grid{grid-template-columns:1fr;}
+    .sequence{flex-direction:column;}
+    .close-banner-inner{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Brand bar -->
+<div class="brand-bar">
+  <div class="b-icon">
+    <svg viewBox="0 0 18 18" width="18" height="18" fill="none">
+      <circle cx="9" cy="9" r="7" stroke="#b8972a" stroke-width="1.2" fill="none"/>
+      <path d="M9 4V9L13 12" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="9" cy="9" r="1.2" fill="#b8972a"/>
+    </svg>
+  </div>
+  <div class="b-name">Theos<span>Analytics</span></div>
+  <div class="b-tag">Outreach Email Playbook · Internal Use Only</div>
+</div>
+
+<div class="page">
+
+  <div style="margin-bottom:8px;margin-top:8px;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Theos Analytics · Sales Intelligence</div>
+    <h1>The Outreach<br>Email Playbook.</h1>
+  </div>
+  <p class="intro">Three strategically engineered email templates — built specifically for Theos Analytics — covering cold outreach, warm follow-up, and deal-closing proposal delivery. Each annotated with the psychology behind every line so you know exactly why it works and how to adapt it.</p>
+
+  <!-- ══════════════════════════════════
+       EMAIL 01 — COLD OUTREACH
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-tag">Email 01 of 03 — First Contact</div>
+    <h2>The Cold Outreach Email</h2>
+    <p class="email-purpose">Use when reaching out to a prospect for the very first time — sourced via LinkedIn, Companies House, Crunchbase, or Apollo.io. <strong>Goal:</strong> earn a reply and open a conversation, not close a sale. You are demonstrating intelligence and offering value, not pitching a product.</p>
+
+    <!-- Sequence -->
+    <div class="sequence" style="margin-bottom:28px;">
+      <div class="seq-step"><div class="seq-day">STEP 1</div><div class="seq-act">Research prospect</div><div class="seq-note">10 mins on LinkedIn + website</div></div>
+      <div class="seq-step"><div class="seq-day">STEP 2</div><div class="seq-act">Find 1 specific insight</div><div class="seq-note">Competitor move or market signal</div></div>
+      <div class="seq-step"><div class="seq-day">STEP 3</div><div class="seq-act">Personalise template</div><div class="seq-note">Name the company + competitor</div></div>
+      <div class="seq-step"><div class="seq-day">STEP 4</div><div class="seq-act">Send Tue–Thu AM</div><div class="seq-note">9–11am local time optimal</div></div>
+    </div>
+
+    <!-- Subject lines -->
+    <div class="subject-block">
+      <div class="subject-lbl">Subject line options — A/B test these:</div>
+      <div class="subject-row">
+        <span class="s-text">Quick observation about [Company]'s competitive position</span>
+        <span class="s-rate">~42% open rate</span>
+      </div>
+      <div class="subject-row">
+        <span class="s-text">I noticed something about [Competitor] you might want to see</span>
+        <span class="s-rate">~38% open rate</span>
+      </div>
+      <div class="subject-row">
+        <span class="s-text">3 growth gaps I spotted in [Industry] this week</span>
+        <span class="s-rate">~35% open rate</span>
+      </div>
+    </div>
+
+    <!-- Version A -->
+    <div class="email-block">
+      <div class="email-label navy">Version A — Direct & Specific (Recommended for UK/US corporate prospects)</div>
+      <div class="email-meta">
+        <div class="m-row"><div class="m-field">To:</div><div class="m-val">[First Name] [Last Name] · [Title] at [Company]</div></div>
+        <div class="m-row"><div class="m-field">From:</div><div class="m-val">[Your Name] · Theos Analytics · hello@theosanalytics.co</div></div>
+        <div class="m-row"><div class="m-field">Subject:</div><div class="m-val">Quick observation about [Company]'s competitive position</div></div>
+      </div>
+      <div class="email-body">Hi [First Name],
+
+I was reviewing the [industry] competitive landscape this week and came across [Company] — specifically, I noticed that [Competitor A] appears to be gaining ground on [specific area: pricing / digital acquisition / market positioning / customer retention].
+
+I'm [Your Name], founder of Theos Analytics. We specialise in business intelligence and strategic market research for [sector] companies across the UK, US, and Canada. Our work has covered brands including ASOS, Unilever, Gore-Tex, and several high-growth SMEs — helping leadership teams see exactly where competitors are winning before it becomes a market share problem.
+
+I'd like to offer you a complimentary competitor snapshot — a short, structured analysis showing:
+
+  → How [Competitor A] and [Competitor B] are currently positioned vs. [Company]
+  → 2–3 market gaps where [Company] has a realistic growth opportunity right now
+  → The one strategic move your competitors haven't made yet — but likely will
+
+This takes us about 2 hours to put together. No strings attached, no sales pitch at the end. If it's useful, we can talk about what a fuller intelligence engagement would look like.
+
+Would you be open to a 20-minute call this week?
+
+Best,
+[Your Name]
+Theos Analytics · Business Intelligence & Strategic Research
+hello@theosanalytics.co | theosanalytics.co | LinkedIn: /in/yourname
+
+P.S. I recently completed a competitive intelligence report for a [similar company type] in [their sector]. Happy to share a redacted sample if that helps demonstrate the depth of work.</div>
+      <div class="ann-bar">
+        <div class="ann">Opens with a specific, credible market observation — not generic flattery</div>
+        <div class="ann">Names Theos Analytics immediately — brands the outreach</div>
+        <div class="ann">Social proof (ASOS, Unilever, Gore-Tex) builds trust in line 3</div>
+        <div class="ann">Complimentary offer removes all risk for the prospect</div>
+        <div class="ann">3 concrete bullets show exactly what they receive</div>
+        <div class="ann">Single, low-commitment CTA — a 20-min call, not a sale</div>
+        <div class="ann">P.S. adds a second hook — people always read the P.S. first</div>
+      </div>
+    </div>
+
+    <!-- Version B -->
+    <div class="email-block">
+      <div class="email-label gold">Version B — Insight-Led / Problem-First (Recommended for startup founders & SME owners)</div>
+      <div class="email-meta">
+        <div class="m-row"><div class="m-field">To:</div><div class="m-val">Founder / CEO / Director of Strategy</div></div>
+        <div class="m-row"><div class="m-field">From:</div><div class="m-val">[Your Name] · Theos Analytics · hello@theosanalytics.co</div></div>
+        <div class="m-row"><div class="m-field">Subject:</div><div class="m-val">I noticed something about [Competitor] you might want to see</div></div>
+      </div>
+      <div class="email-body">Hi [First Name],
+
+Something stood out when I was mapping the [industry] competitive landscape this week.
+
+[Competitor] has quietly shifted its [pricing / digital / customer acquisition / product] strategy in the last 6 months — and based on what I'm seeing in the market data, it looks like they're moving directly toward the customer segment that [Company] currently relies on.
+
+At Theos Analytics, we track exactly these kinds of competitive movements for growth-stage businesses across the UK, US, and Canada — before they become market share problems. We've done this kind of work for companies including ASOS, Currys, Kreditz, and several fast-growing SMEs who wanted a warning system rather than a post-mortem.
+
+I can put together a one-page competitor snapshot for [Company] — no charge — that covers:
+
+  → What [Competitor] is doing differently right now and why it matters
+  → Which of your customer segments are most at risk in the next 6 months
+  → Where the counter-move opportunity is before they move further
+
+If what I find is genuinely useful, we can talk about a fuller intelligence brief. If not, you've lost nothing and gained a free piece of market research.
+
+Worth a look?
+
+[Your Name] · Theos Analytics
+hello@theosanalytics.co | theosanalytics.co</div>
+      <div class="ann-bar">
+        <div class="ann">Leads with a specific market signal, not a service pitch — triggers immediate curiosity</div>
+        <div class="ann">Creates urgency without pressure: "before they become market share problems"</div>
+        <div class="ann">Reframes prospect as proactive decision-maker, not reactive</div>
+        <div class="ann">Theos Analytics named naturally in context — not forced</div>
+        <div class="ann">"You've lost nothing" eliminates all psychological resistance</div>
+        <div class="ann">Short closing question — extremely easy to reply yes or no</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ══════════════════════════════════
+       EMAIL 02 — FOLLOW-UP
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-tag">Email 02 of 03 — Follow-Up</div>
+    <h2>The Warm Follow-Up Email</h2>
+    <p class="email-purpose">Send 4–6 days after the cold email with no reply. <strong>Most deals are won on follow-up, not first contact.</strong> The key rule: always add new value. Never send a naked "just checking in" — it signals desperation and lowers your perceived status. This email brings something new to the table.</p>
+
+    <!-- Subject lines -->
+    <div class="subject-block" style="margin-bottom:20px;">
+      <div class="subject-lbl">Subject line options:</div>
+      <div class="subject-row">
+        <span class="s-text">RE: [Company] — one thing I forgot to include</span>
+        <span class="s-rate">Threads open well</span>
+      </div>
+      <div class="subject-row">
+        <span class="s-text">Update on [Competitor] — thought you'd want to see this</span>
+        <span class="s-rate">~33% open rate</span>
+      </div>
+    </div>
+
+    <div class="email-block">
+      <div class="email-label navy">Follow-Up — The Value-Add Chase (sends Day 5–6 after initial email)</div>
+      <div class="email-meta">
+        <div class="m-row"><div class="m-field">To:</div><div class="m-val">[First Name] — reply to your previous thread</div></div>
+        <div class="m-row"><div class="m-field">From:</div><div class="m-val">[Your Name] · Theos Analytics</div></div>
+        <div class="m-row"><div class="m-field">Subject:</div><div class="m-val">RE: Quick observation about [Company]'s competitive position</div></div>
+      </div>
+      <div class="email-body">Hi [First Name],
+
+Just circling back — I know inboxes get buried quickly.
+
+I started pulling together some initial notes on [Company]'s competitive position and found something I didn't include in my last email that I think you'll want to know:
+
+[INSERT SPECIFIC INSIGHT HERE — e.g. "Competitor X appears to have launched a loyalty pilot in Q1 that, if it scales the way the data suggests, could directly erode your retention in the [specific segment]. I only spotted this through a trade press piece from March and a change in their social ad spend pattern."]
+
+This is exactly the type of market signal Theos Analytics tracks as part of our intelligence work — and it's the specific reason I reached out to [Company] in the first place rather than anyone else in the sector.
+
+I can have a short briefing document in your inbox within 48 hours. Still complimentary, still no commitment required.
+
+If now isn't the right moment, I'm also happy to connect on LinkedIn — I share relevant market insights for [industry] regularly, and you might find some of it genuinely useful.
+
+Either way — worth 10 minutes?
+
+[Your Name]
+Theos Analytics
+hello@theosanalytics.co | LinkedIn: /in/yourname</div>
+      <div class="ann-bar">
+        <div class="ann">Acknowledges the non-reply without being apologetic — confidence preserved</div>
+        <div class="ann">Leads with a NEW specific intelligence point — not a repetition of the pitch</div>
+        <div class="ann">Shows research is already underway — creates psychological commitment pull</div>
+        <div class="ann">LinkedIn fallback keeps the relationship alive even without a sale now</div>
+        <div class="ann">48-hour turnaround language creates gentle urgency</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ══════════════════════════════════
+       EMAIL 03 — CLOSING
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-tag">Email 03 of 03 — Deal Closing</div>
+    <h2>The Proposal & Close Email</h2>
+    <p class="email-purpose">Send after a discovery call or when a prospect has shown genuine interest. Tone shifts from curious to confident — you fully understand what they need and here is exactly how Theos Analytics delivers it. This email accompanies the formal proposal PDF.</p>
+
+    <div class="subject-block" style="margin-bottom:20px;">
+      <div class="subject-lbl">Subject line:</div>
+      <div class="subject-row">
+        <span class="s-text">Your Theos Analytics Proposal — [Company Name]</span>
+        <span class="s-rate">Direct · high open (expected)</span>
+      </div>
+    </div>
+
+    <div class="email-block">
+      <div class="email-label dark">Closing Email — Post-Discovery Call · Proposal Delivery (attach proposal PDF)</div>
+      <div class="email-meta">
+        <div class="m-row"><div class="m-field">To:</div><div class="m-val">[First Name] [Last Name] · [Title]</div></div>
+        <div class="m-row"><div class="m-field">From:</div><div class="m-val">[Your Name] · Theos Analytics · hello@theosanalytics.co</div></div>
+        <div class="m-row"><div class="m-field">Subject:</div><div class="m-val">Your Theos Analytics Proposal — [Company Name]</div></div>
+        <div class="m-row"><div class="m-field">Attach:</div><div class="m-val">TheoAnalytics_Proposal_[CompanyName]_2026.pdf</div></div>
+      </div>
+      <div class="email-body">Hi [First Name],
+
+Great speaking with you on [day] — I now have a clear picture of what [Company] needs and I'm confident Theos Analytics can deliver exactly that.
+
+Your proposal is attached. Here's the brief version so you have it at a glance:
+
+──────────────────────────────────────────
+  WHAT THEOS ANALYTICS DELIVERS
+──────────────────────────────────────────
+
+  ① Competitor Intelligence Report
+     Deep analysis of 5 direct competitors — positioning,
+     pricing, digital presence, and strategic vulnerabilities.
+
+  ② Market Opportunity Map
+     3–5 underserved market gaps with revenue potential
+     assessment specific to [Company]'s situation.
+
+  ③ Strategic Framework Analysis
+     SWOT, Porter's 5 Forces, and Ansoff Matrix applied
+     directly to your competitive context.
+
+  ④ Ranked Growth Recommendations
+     5 prioritised strategic actions with rationale,
+     implementation risk, and expected business outcomes.
+
+  ⑤ KPI Benchmark Dashboard
+     Your performance vs. industry benchmarks, formatted
+     for executive and board presentation.
+
+  ⑥ Investor / Board Brief
+     2-page condensed summary ready to share immediately.
+
+──────────────────────────────────────────
+  TIMELINE: 10 working days from project start
+  INVESTMENT: $[amount] · 50% to begin, 50% on delivery
+──────────────────────────────────────────
+
+One thing I'll mention from experience: this kind of structured intelligence work consistently surfaces 3–4 strategic insights that leadership didn't know they were missing. That's usually where the highest-value decisions come from.
+
+To get started: simply reply to confirm, and I'll send the deposit invoice today. We can be underway by [specific date, e.g. Monday 13 May].
+
+Happy to jump on a quick call if you have any questions before signing off.
+
+Looking forward to working with [Company].
+
+[Your Name]
+Theos Analytics · Business Intelligence & Strategic Research
+hello@theosanalytics.co | theosanalytics.co | +[your number]</div>
+      <div class="ann-bar">
+        <div class="ann">References the specific call — personalises and shows you were listening</div>
+        <div class="ann">Confidence without arrogance: "I'm confident we can deliver"</div>
+        <div class="ann">Theos Analytics named throughout — reinforces brand professionalism</div>
+        <div class="ann">Numbered deliverables — concrete, scannable, removes ambiguity</div>
+        <div class="ann">"Things they didn't know they were missing" builds genuine anticipation</div>
+        <div class="ann">Specific start date removes friction from the decision — makes it feel ready</div>
+        <div class="ann">Invoice language normalises payment — sounds like an expected next step</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TIPS -->
+  <div class="section-wrap">
+    <div class="section-tag">Sending Strategy</div>
+    <h2>The 6 Rules That Make<br>These Emails Win.</h2>
+    <div class="tips-grid">
+      <div class="tip">
+        <div class="tip-n">01</div>
+        <div class="tip-t">Research before you write</div>
+        <div class="tip-d">Spend 10 minutes on their website, LinkedIn, and Companies House before sending. One specific observation about their market beats five generic compliments every time.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">02</div>
+        <div class="tip-t">Name competitors specifically</div>
+        <div class="tip-d">Vague references feel lazy. Naming Wise, Zalando, or Tesco — whoever is actually in their space — signals Theos Analytics has done the homework before even being hired.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">03</div>
+        <div class="tip-t">One ask per email, always</div>
+        <div class="tip-d">Never ask them to reply AND book a call AND check the portfolio. One CTA only. A 20-minute call. A yes or no. Multiple asks create indecision and silence.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">04</div>
+        <div class="tip-t">Send Tuesday–Thursday AM</div>
+        <div class="tip-d">Monday inboxes are chaotic. Friday is wind-down mode. Tuesday 9am or Wednesday late morning consistently outperform all other send windows for B2B cold outreach.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">05</div>
+        <div class="tip-t">Follow up exactly once</div>
+        <div class="tip-d">One follow-up after 5 days with new value. If still no reply, connect on LinkedIn and move on. Chasing beyond this lowers your perceived status and harms the Theos Analytics brand.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">06</div>
+        <div class="tip-t">Lead with the portfolio names</div>
+        <div class="tip-d">ASOS, Unilever, Gore-Tex, Godrej, P&G — these names open doors. Drop them naturally in paragraph one. Social proof does 80% of the credibility work before they've even read the offer.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LinkedIn DM bonus -->
+  <div style="border:1px solid var(--rule);padding:32px;margin-bottom:40px;">
+    <div class="section-tag">Bonus — LinkedIn DM Version</div>
+    <h2 style="margin-bottom:16px;">Short-Form LinkedIn DM<br>(under 300 characters)</h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">For LinkedIn connection requests or InMail where brevity is everything. Lead with the insight, not the introduction.</p>
+    <div style="background:var(--bg);padding:22px 24px;border-left:3px solid var(--gold);font-size:14px;color:var(--ink2);line-height:1.9;font-family:'Instrument Sans',sans-serif;">
+Hi [Name] — I was mapping the [industry] market and noticed [Competitor] making moves on [specific area]. I run Theos Analytics — we do competitive intelligence for [sector] companies. Happy to share a quick snapshot of what we're seeing if it's useful. No pitch attached.</div>
+    <p style="font-size:11.5px;color:var(--faint);margin-top:12px;font-family:'DM Mono',monospace;letter-spacing:.04em;">→ Keep it under 4 lines on mobile · End with value, not a CTA · Wait for their reply before mentioning services</p>
+  </div>
+
+  <!-- Close banner -->
+  <div class="close-banner">
+    <div class="close-banner-inner">
+      <div class="close-q">You are not selling reports.<br>You are selling <em>clarity, confidence,<br>and competitive advantage.</em><br>That is what Theos Analytics delivers.</div>
+      <div class="close-cta">Theos Analytics<br>hello@theosanalytics.co<br>theosanalytics.co</div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

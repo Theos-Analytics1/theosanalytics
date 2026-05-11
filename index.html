@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Theos Analytics — Business Intelligence, Market Research & Strategic Consulting. Based in Manhattan, NY. Serving UK, US, Canada and global markets.">
+<meta property="og:title" content="Theos Analytics | Business Intelligence & Strategic Research">
+<meta property="og:description" content="Executive-grade competitive intelligence, market research, and strategic analysis for growth companies.">
+<meta name="theme-color" content="#0a1628">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/theme.css">
+<title>Theos Analytics | Business Intelligence & Strategic Research</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════
+   THEOS ANALYTICS — FULL WEBSITE
+   Version: 2.0 | GitHub-Ready
+   Address: 26 Manhattan, New York, NY
+   ══════════════════════════════════════ */
+
+:root {
+  /* Brand palette */
+  --navy:       #0a1628;
+  --navy2:      #0f2040;
+  --navy3:      #162952;
+  --electric:   #2563eb;
+  --electric2:  #3b82f6;
+  --electric-lt:#dbeafe;
+  --teal:       #0891b2;
+  --teal2:      #06b6d4;
+  --teal-lt:    #cffafe;
+  --gold:       #d97706;
+  --gold2:      #f59e0b;
+  --gold-lt:    #fef3c7;
+  --emerald:    #059669;
+  --emerald-lt: #d1fae5;
+  --rose:       #e11d48;
+  --violet:     #7c3aed;
+  --violet2:    #8b5cf6;
+  --ink:        #0f172a;
+  --ink2:       #1e293b;
+  --muted:      #64748b;
+  --faint:      #94a3b8;
+  --rule:       #e2e8f0;
+  --bg:         #f8fafc;
+  --surface:    #ffffff;
+
+  /* Spacing */
+  --nav-h: 72px;
+  --section-pad: 110px;
+  --wrap: 1200px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── UTILITIES ─── */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 48px; }
+.mono { font-family: 'DM Mono', monospace; }
+.syne { font-family: 'Syne', sans-serif; }
+.text-muted { color: var(--muted); }
+.text-center { text-align: center; }
+
+/* ─── SECTION LABELS ─── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--electric2); margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: ''; display: block; width: 24px; height: 2px;
+  background: linear-gradient(90deg, var(--electric), var(--teal2));
+  border-radius: 2px;
+}
+
+/* ─── HEADINGS ─── */
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 700; line-height: 1.08; }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -.03em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -.025em; }
+h3 { font-size: 1.4rem; letter-spacing: -.01em; font-weight: 600; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: 14px 28px; border: none; cursor: pointer;
+  transition: all .25s; border-radius: 2px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--electric) 0%, var(--teal) 100%);
+  color: white; box-shadow: 0 4px 20px rgba(37,99,235,.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,.45); }
+.btn-outline {
+  background: transparent; color: white;
+  border: 1px solid rgba(255,255,255,.3);
+}
+.btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+.btn-dark {
+  background: var(--navy); color: white;
+  box-shadow: 0 4px 16px rgba(10,22,40,.25);
+}
+.btn-dark:hover { background: var(--navy2); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--electric); border: 1px solid var(--electric-lt); }
+.btn-ghost:hover { background: var(--electric-lt); }
+.btn svg { width: 16px; height: 16px; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+@keyframes pulse { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+@keyframes marqueeL { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+@keyframes spinSlow { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes gradientShift { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+@keyframes counterUp { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+@keyframes barFill { from{width:0;} to{width:var(--w);} }
+@keyframes dash { from{stroke-dashoffset:300;} to{stroke-dashoffset:0;} }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+.reveal { opacity:0; transform:translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.22s; }
+.reveal-delay-3 { transition-delay:.36s; }
+.reveal-delay-4 { transition-delay:.5s; }
+.reveal-delay-5 { transition-delay:.64s; }
+
+/* ══════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════ */
+#nav {
+  position: fixed; top:0; left:0; right:0; z-index: 1000;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  transition: all .3s;
+}
+#nav.scrolled {
+  background: rgba(10,22,40,.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 4px 32px rgba(0,0,0,.25);
+}
+.nav-inner { width:100%; display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+
+/* Logo */
+.logo { display:flex; align-items:center; gap:12px; cursor:pointer; }
+.logo-mark {
+  width:38px; height:38px; position:relative;
+  background: linear-gradient(135deg, var(--electric) 0%, var(--teal) 100%);
+  display:flex; align-items:center; justify-content:center;
+  border-radius:4px; overflow:hidden;
+}
+.logo-mark::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 70% 30%, rgba(255,255,255,.2) 0%, transparent 60%);
+}
+.logo-mark svg { width:22px; height:22px; position:relative; z-index:1; }
+.logo-name { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800; color:white; letter-spacing:-.01em; }
+.logo-name span { color:var(--teal2); }
+
+/* Nav links */
+.nav-links { display:flex; gap:8px; list-style:none; }
+.nav-links a {
+  font-size:12.5px; font-weight:500; letter-spacing:.04em;
+  color:rgba(255,255,255,.65); padding:8px 14px; border-radius:4px;
+  transition: all .2s; display:block;
+}
+.nav-links a:hover { color:white; background:rgba(255,255,255,.08); }
+.nav-links a.active { color:var(--teal2); }
+
+/* Nav right */
+.nav-right { display:flex; align-items:center; gap:14px; }
+.nav-contact { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; color:rgba(255,255,255,.4); }
+.nav-cta {
+  padding:10px 22px; background:linear-gradient(135deg, var(--electric) 0%, var(--teal) 100%);
+  color:white; font-family:'Syne',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.05em; text-transform:uppercase; border:none; cursor:pointer;
+  border-radius:3px; transition:all .2s; white-space:nowrap;
+}
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(37,99,235,.4); }
+
+/* Mobile hamburger */
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; }
+.hamburger span { width:24px; height:2px; background:white; border-radius:2px; transition:all .3s; }
+
+/* ══════════════════════════════════════
+   HERO SECTION
+   ══════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  padding-top: var(--nav-h);
+}
+
+/* Animated mesh gradient background */
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(37,99,235,.2) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(8,145,178,.2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 60% 80%, rgba(124,58,237,.12) 0%, transparent 60%),
+    linear-gradient(180deg, #0a1628 0%, #0f2040 100%);
+}
+
+/* Animated grid overlay */
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(37,99,235,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37,99,235,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Floating orbs */
+.orb {
+  position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+.orb-1 { width:400px; height:400px; background:rgba(37,99,235,.15); top:-80px; right:10%; animation-delay:0s; }
+.orb-2 { width:300px; height:300px; background:rgba(8,145,178,.12); bottom:10%; left:5%; animation-delay:2s; }
+.orb-3 { width:200px; height:200px; background:rgba(124,58,237,.1); top:30%; left:40%; animation-delay:4s; }
+
+.hero-inner {
+  position: relative; z-index:1;
+  width:100%; display:grid; grid-template-columns:1.1fr .9fr; gap:80px; align-items:center;
+  padding: 0 48px; max-width: 1300px; margin:0 auto;
+}
+
+.hero-l {}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(37,99,235,.15); border:1px solid rgba(37,99,235,.3);
+  border-radius:999px; padding:6px 16px; margin-bottom:28px;
+}
+.badge-dot { width:6px; height:6px; border-radius:50%; background:var(--teal2); animation:pulse 2s infinite; }
+.badge-txt { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.12em; color:var(--teal2); text-transform:uppercase; }
+
+.hero-title { color:white; margin-bottom:24px; }
+.hero-title .line-accent {
+  background: linear-gradient(135deg, var(--electric2) 0%, var(--teal2) 50%, var(--gold2) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  -webkit-background-clip: text; background-clip:text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub { font-size:1.1rem; color:rgba(255,255,255,.6); max-width:480px; margin-bottom:40px; line-height:1.8; }
+
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:52px; }
+
+/* Hero trust row */
+.hero-trust { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.trust-logos { display:flex; gap:16px; align-items:center; }
+.trust-logo { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+.trust-div { width:1px; height:14px; background:rgba(255,255,255,.1); }
+
+/* Hero right — dashboard card */
+.hero-r { position: relative; }
+.hero-dashboard {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 80px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.05);
+}
+.dash-topbar {
+  background: rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.08);
+  padding:12px 18px; display:flex; align-items:center; gap:8px;
+}
+.dash-dot { width:10px; height:10px; border-radius:50%; }
+.dash-title { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.14em; color:rgba(255,255,255,.35); margin-left:8px; text-transform:uppercase; }
+.dash-body { padding:20px; }
+.dash-kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.dash-kpi {
+  background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:8px; padding:14px 12px;
+}
+.kpi-num { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:700; color:white; line-height:1; }
+.kpi-label { font-family:'DM Mono',monospace; font-size:8.5px; color:rgba(255,255,255,.35); letter-spacing:.08em; margin-top:4px; text-transform:uppercase; }
+.kpi-trend { font-size:10px; color:var(--emerald); margin-top:3px; }
+.dash-chart { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:8px; padding:14px; margin-bottom:12px; }
+.dash-chart-title { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.14em; color:rgba(255,255,255,.3); margin-bottom:12px; text-transform:uppercase; }
+.mini-bars { display:flex; align-items:flex-end; gap:4px; height:56px; }
+.mb { flex:1; border-radius:2px 2px 0 0; opacity:.85; }
+
+/* Animated line chart SVG */
+.dash-line-chart { margin-bottom:12px; }
+
+.dash-companies { display:flex; gap:6px; flex-wrap:wrap; }
+.co-chip { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.06em; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.45); }
+
+/* Floating badge on dashboard */
+.hero-float-badge {
+  position:absolute; bottom:-20px; left:-20px;
+  background:white; border-radius:8px; padding:12px 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+  display:flex; align-items:center; gap:10px;
+  animation:float 5s ease-in-out infinite;
+}
+.float-icon { width:32px; height:32px; border-radius:6px; background:linear-gradient(135deg,var(--electric),var(--teal)); display:flex; align-items:center; justify-content:center; font-size:14px; }
+.float-text strong { display:block; font-size:12px; font-weight:600; color:var(--ink); font-family:'Syne',sans-serif; }
+.float-text span { font-size:10.5px; color:var(--muted); }
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:6px; z-index:2; }
+.scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, rgba(255,255,255,.5), transparent); }
+.scroll-txt { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.2em; color:rgba(255,255,255,.3); text-transform:uppercase; }
+
+/* ══════════════════════════════════════
+   MARQUEE STRIP
+   ══════════════════════════════════════ */
+.marquee-strip {
+  background: var(--navy2); border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  padding:16px 0; overflow:hidden;
+}
+.marquee-track { display:flex; gap:0; width:max-content; animation:marqueeL 28s linear infinite; }
+.marquee-item {
+  display:flex; align-items:center; gap:14px;
+  padding:0 28px; border-right:1px solid rgba(255,255,255,.07);
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; color:rgba(255,255,255,.35); white-space:nowrap;
+}
+.marquee-item::before { content:'◆'; font-size:5px; color:var(--teal2); }
+
+/* ══════════════════════════════════════
+   ABOUT / VALUE SECTION
+   ══════════════════════════════════════ */
+#about { padding: var(--section-pad) 0; }
+.about-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:100px; align-items:center; }
+.about-visual { position:relative; }
+.about-card-stack { position:relative; height:480px; }
+.a-card {
+  position:absolute; background:var(--surface);
+  border:1px solid var(--rule); border-radius:12px;
+  padding:24px; box-shadow:0 8px 32px rgba(0,0,0,.06);
+  transition:transform .3s;
+}
+.a-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.1); }
+.a-card-1 { top:0; left:0; right:40px; }
+.a-card-2 { top:140px; left:40px; right:0; background:var(--navy); border-color:rgba(255,255,255,.08); }
+.a-card-3 { bottom:0; left:0; right:80px; }
+.a-card-title { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; margin-bottom:12px; }
+.a-card-2 .a-card-title { color:white; }
+.stat-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.stat-chip { padding:6px 14px; border-radius:6px; font-size:12px; font-weight:500; display:flex; align-items:center; gap:6px; }
+.sc-blue { background:var(--electric-lt); color:var(--electric); }
+.sc-teal { background:var(--teal-lt); color:var(--teal); }
+.sc-gold { background:var(--gold-lt); color:var(--gold); }
+.sc-green { background:var(--emerald-lt); color:var(--emerald); }
+.sc-violet { background:#ede9fe; color:var(--violet); }
+.metric-pair { display:flex; justify-content:space-between; margin-top:10px; }
+.mp-val { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:700; color:white; }
+.mp-lbl { font-size:10.5px; color:rgba(255,255,255,.45); margin-top:2px; }
+.bar-mini-chart { display:flex; flex-direction:column; gap:6px; margin-top:8px; }
+.bmc-row { display:flex; align-items:center; gap:8px; }
+.bmc-lbl { font-size:10.5px; color:var(--muted); min-width:64px; }
+.bmc-track { flex:1; height:5px; background:var(--rule); border-radius:999px; overflow:hidden; }
+.bmc-fill { height:100%; border-radius:999px; }
+
+.about-content {}
+.about-content p { color:var(--muted); margin-bottom:20px; font-size:1.05rem; line-height:1.85; }
+.about-content strong { color:var(--ink); font-weight:600; }
+.about-pillars { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:32px; }
+.pillar {
+  padding:18px 16px; border:1px solid var(--rule); border-radius:8px;
+  border-left:3px solid var(--electric); background:var(--surface);
+  transition:all .2s;
+}
+.pillar:hover { border-left-color:var(--teal); box-shadow:0 4px 16px rgba(0,0,0,.06); }
+.pillar-icon { font-size:18px; margin-bottom:8px; display:block; }
+.pillar-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; margin-bottom:4px; }
+.pillar-desc { font-size:12px; color:var(--muted); line-height:1.6; }
+
+/* ══════════════════════════════════════
+   SERVICES SECTION
+   ══════════════════════════════════════ */
+#services { background:var(--navy); padding:var(--section-pad) 0; position:relative; overflow:hidden; }
+#services::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 20%, rgba(37,99,235,.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(8,145,178,.1) 0%, transparent 70%);
+}
+#services .eyebrow { color:rgba(255,255,255,.5); }
+#services h2 { color:white; margin-bottom:16px; }
+.services-intro { color:rgba(255,255,255,.5); max-width:520px; margin-bottom:64px; font-size:1.05rem; line-height:1.75; }
+.services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:rgba(255,255,255,.05); position:relative; z-index:1; }
+.service-card {
+  background:var(--navy); padding:44px 40px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:all .3s; position:relative; overflow:hidden;
+  cursor:default;
+}
+.service-card::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(37,99,235,.08) 0%, transparent 60%);
+  opacity:0; transition:opacity .3s;
+}
+.service-card:hover::before { opacity:1; }
+.service-card:hover { border-color:rgba(37,99,235,.3); }
+.service-num { font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,.2); letter-spacing:.12em; margin-bottom:20px; }
+.service-icon {
+  width:52px; height:52px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:20px;
+}
+.si-blue  { background:rgba(37,99,235,.2);  }
+.si-teal  { background:rgba(8,145,178,.2);  }
+.si-gold  { background:rgba(217,119,6,.2);  }
+.si-green { background:rgba(5,150,105,.2);  }
+.service-title { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; color:white; margin-bottom:12px; }
+.service-desc { font-size:13.5px; color:rgba(255,255,255,.45); line-height:1.75; margin-bottom:24px; }
+.service-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.svc-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.4); border-radius:2px; }
+.svc-tag:hover { border-color:var(--teal2); color:var(--teal2); }
+
+/* ══════════════════════════════════════
+   METRICS / STATS BAND
+   ══════════════════════════════════════ */
+#metrics {
+  background: linear-gradient(135deg, var(--electric) 0%, var(--teal) 60%, var(--violet) 100%);
+  padding:80px 0; position:relative; overflow:hidden;
+}
+#metrics::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.metrics-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.15); position:relative; z-index:1; }
+.metric-cell { background:transparent; padding:44px 28px; text-align:center; }
+.metric-num { font-family:'Syne',sans-serif; font-size:3.4rem; font-weight:800; color:white; line-height:1; letter-spacing:-.03em; }
+.metric-num sub { font-size:1.6rem; }
+.metric-lbl { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:10px; }
+
+/* ══════════════════════════════════════
+   PORTFOLIO / CASE STUDIES
+   ══════════════════════════════════════ */
+#portfolio { padding:var(--section-pad) 0; }
+.port-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:20px; }
+.filter-tabs { display:flex; gap:4px; background:var(--rule); padding:4px; border-radius:6px; }
+.ftab {
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+  padding:8px 16px; border:none; background:transparent; color:var(--muted);
+  cursor:pointer; border-radius:4px; transition:all .2s; font-weight:500;
+}
+.ftab.on { background:var(--surface); color:var(--navy); box-shadow:0 1px 4px rgba(0,0,0,.1); }
+
+.portfolio-bento { display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
+.pb { background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:32px 28px; overflow:hidden; position:relative; transition:all .3s; }
+.pb:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.1); border-color:rgba(37,99,235,.2); }
+.pb-c1 { grid-column:span 7; }
+.pb-c2 { grid-column:span 5; }
+.pb-c3 { grid-column:span 4; }
+.pb-c4 { grid-column:span 4; }
+.pb-c5 { grid-column:span 4; }
+.pb-c6 { grid-column:span 6; }
+.pb-c7 { grid-column:span 6; }
+.pb-tag { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--electric); margin-bottom:12px; display:block; }
+.pb-title { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:6px; line-height:1.2; }
+.pb-co { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.06em; color:var(--muted); margin-bottom:16px; }
+.pb-desc { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:18px; }
+.pb-outcomes { list-style:none; }
+.pb-outcomes li { font-size:12px; color:var(--ink2); padding:5px 0; border-top:1px solid var(--rule); display:flex; align-items:baseline; gap:8px; }
+.pb-outcomes li::before { content:'→'; color:var(--electric); font-size:9px; flex-shrink:0; font-family:'DM Mono',monospace; }
+.pb-num { font-family:'Syne',sans-serif; font-size:5rem; font-weight:800; color:var(--rule); position:absolute; top:8px; right:16px; line-height:1; pointer-events:none; letter-spacing:-.04em; }
+
+/* Charts inside portfolio */
+.pb-chart { margin-top:18px; }
+.pb-chart-title { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.14em; color:var(--faint); margin-bottom:10px; text-transform:uppercase; }
+.hbar-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+.hbar-lbl { font-size:10.5px; color:var(--muted); min-width:80px; }
+.hbar-track { flex:1; height:8px; background:var(--rule); border-radius:4px; overflow:hidden; }
+.hbar-fill { height:100%; border-radius:4px; transition:width 1.5s cubic-bezier(.4,0,.2,1); }
+.hbar-val { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); min-width:36px; text-align:right; }
+
+/* Donut */
+.pb-donut { display:flex; align-items:center; gap:14px; margin-top:14px; }
+.donut-legend .dl-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.dl-dot { width:8px; height:8px; border-radius:50%; }
+.dl-lbl { font-size:10.5px; color:var(--muted); }
+.dl-v { font-family:'DM Mono',monospace; font-size:10px; color:var(--ink); margin-left:auto; min-width:28px; text-align:right; }
+
+/* Radar chart */
+.radar-wrap { display:flex; justify-content:center; margin-top:10px; }
+
+/* KPI gauges */
+.gauge-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+.gauge-item { text-align:center; }
+.gauge-svg { display:block; margin:0 auto; }
+.gauge-val { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); }
+.gauge-lbl { font-size:10px; color:var(--muted); }
+
+/* ══════════════════════════════════════
+   COMPANIES MARQUEE GRID
+   ══════════════════════════════════════ */
+#companies { background:var(--navy); padding:var(--section-pad) 0; }
+#companies .eyebrow { color:rgba(255,255,255,.4); }
+#companies h2 { color:white; margin-bottom:14px; }
+.companies-intro { color:rgba(255,255,255,.45); max-width:500px; margin-bottom:60px; font-size:1rem; line-height:1.75; }
+.co-bento { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(255,255,255,.05); }
+.co-b {
+  background:var(--navy2); padding:30px 24px; position:relative; overflow:hidden;
+  transition:all .3s; cursor:default;
+}
+.co-b:hover { background:var(--navy3); }
+.co-b::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--electric), var(--teal2));
+  transform:scaleX(0); transform-origin:left; transition:transform .4s;
+}
+.co-b:hover::after { transform:scaleX(1); }
+.co-flag { font-size:20px; margin-bottom:14px; display:block; }
+.co-name { font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:800; color:white; margin-bottom:4px; }
+.co-sector { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal2); margin-bottom:10px; }
+.co-desc { font-size:12px; color:rgba(255,255,255,.4); line-height:1.65; }
+
+/* ══════════════════════════════════════
+   LIVE DASHBOARD SECTION
+   ══════════════════════════════════════ */
+#dashboard { padding:var(--section-pad) 0; }
+.dash-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-top:52px; }
+.dg { background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:24px; transition:all .3s; }
+.dg:hover { box-shadow:0 8px 32px rgba(0,0,0,.07); }
+.dg-c8 { grid-column:span 8; }
+.dg-c4 { grid-column:span 4; }
+.dg-c6 { grid-column:span 6; }
+.dg-c5 { grid-column:span 5; }
+.dg-c7 { grid-column:span 7; }
+.dg-c3 { grid-column:span 3; }
+.dg-title { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.dg-sub { font-size:11px; color:var(--muted); margin-bottom:16px; }
+
+/* Area chart (SVG) */
+.area-chart-wrap { overflow:hidden; border-radius:6px; }
+
+/* Scatter chart */
+.scatter-wrap { position:relative; height:180px; background:var(--bg); border-radius:6px; overflow:hidden; }
+.scatter-axis-x { position:absolute; bottom:20px; left:20px; right:20px; height:1px; background:var(--rule); }
+.scatter-axis-y { position:absolute; top:10px; bottom:20px; left:20px; width:1px; background:var(--rule); }
+.s-dot { position:absolute; border-radius:50%; transform:translate(-50%,-50%); cursor:pointer; transition:transform .2s; }
+.s-dot:hover { transform:translate(-50%,-50%) scale(1.4); }
+.s-dot-lbl { position:absolute; font-size:9px; font-family:'DM Mono',monospace; color:var(--muted); white-space:nowrap; top:-16px; left:50%; transform:translateX(-50%); }
+
+/* Stacked bar */
+.stacked-wrap { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.stacked-row { display:flex; height:28px; border-radius:4px; overflow:hidden; gap:2px; }
+.stacked-seg { transition:flex .8s; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:8px; color:rgba(255,255,255,.8); }
+.stacked-lbl { font-size:11px; color:var(--muted); margin-bottom:4px; font-family:'DM Mono',monospace; letter-spacing:.04em; }
+
+/* Heatmap */
+.heatmap { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+.hm-cell { aspect-ratio:1; border-radius:3px; }
+
+/* Radar / spider SVG */
+.radar-chart { display:flex; justify-content:center; }
+
+/* KPI cards row */
+.kpi-row { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.kpi-card { background:var(--bg); border-radius:8px; padding:16px; border:1px solid var(--rule); }
+.kpi-card-num { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--navy); line-height:1; }
+.kpi-card-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+.kpi-card-delta { font-size:11px; color:var(--emerald); margin-top:4px; display:flex; align-items:center; gap:3px; }
+.kpi-card-delta.down { color:var(--rose); }
+
+/* ══════════════════════════════════════
+   METHODOLOGY
+   ══════════════════════════════════════ */
+#methodology { background:var(--navy); padding:var(--section-pad) 0; }
+#methodology .eyebrow { color:rgba(255,255,255,.35); }
+#methodology h2 { color:white; margin-bottom:60px; }
+.method-steps { display:grid; grid-template-columns:repeat(5,1fr); position:relative; }
+.method-steps::before {
+  content:''; position:absolute; top:42px; left:10%; right:10%; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(37,99,235,.5) 20%, rgba(8,145,178,.5) 80%, transparent);
+  z-index:0;
+}
+.ms { padding:0 16px; text-align:center; position:relative; z-index:1; }
+.ms-num {
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg, var(--electric) 0%, var(--teal) 100%);
+  color:white; font-family:'Syne',sans-serif; font-size:16px; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 24px; box-shadow:0 4px 20px rgba(37,99,235,.4);
+}
+.ms-icon { font-size:22px; display:block; margin-bottom:14px; }
+.ms-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:white; margin-bottom:8px; }
+.ms-desc { font-size:12px; color:rgba(255,255,255,.4); line-height:1.7; }
+
+/* ══════════════════════════════════════
+   PRICING
+   ══════════════════════════════════════ */
+#pricing { padding:var(--section-pad) 0; }
+.pricing-note { color:var(--muted); max-width:540px; margin-bottom:64px; font-size:1rem; line-height:1.75; }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start; }
+.price-card {
+  border:1px solid var(--rule); border-radius:12px; padding:36px 28px;
+  background:var(--surface); position:relative; transition:all .3s;
+}
+.price-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,.1); }
+.price-card.featured-p {
+  border-color:var(--electric);
+  background: linear-gradient(180deg, #f0f6ff 0%, var(--surface) 100%);
+  box-shadow:0 8px 40px rgba(37,99,235,.15);
+}
+.fp-badge {
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:linear-gradient(135deg, var(--electric), var(--teal));
+  color:white; font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:.14em; text-transform:uppercase; padding:5px 18px; border-radius:999px;
+  white-space:nowrap; box-shadow:0 4px 12px rgba(37,99,235,.4);
+}
+.price-tier { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--electric); margin-bottom:16px; }
+.price-amount { font-family:'Syne',sans-serif; font-size:2.8rem; font-weight:800; color:var(--navy); margin-bottom:4px; line-height:1; }
+.price-per { font-size:12px; color:var(--muted); margin-bottom:28px; }
+.price-list { list-style:none; border-top:1px solid var(--rule); padding-top:22px; }
+.price-list li { font-size:13px; color:var(--muted); padding:8px 0; border-bottom:1px solid var(--rule); display:flex; gap:10px; align-items:baseline; }
+.price-list li:last-child { border-bottom:none; }
+.price-list li::before { content:'✓'; color:var(--emerald); font-size:11px; flex-shrink:0; font-family:'DM Mono',monospace; }
+.price-cta {
+  display:block; text-align:center; margin-top:28px;
+  padding:14px; font-family:'Syne',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; border-radius:6px;
+  cursor:pointer; transition:all .2s;
+  border:1px solid var(--rule); color:var(--navy); background:transparent;
+}
+.price-cta:hover { background:var(--navy); color:white; border-color:var(--navy); }
+.featured-p .price-cta {
+  background:linear-gradient(135deg, var(--electric), var(--teal));
+  color:white; border:none; box-shadow:0 4px 16px rgba(37,99,235,.35);
+}
+.featured-p .price-cta:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.45); }
+
+/* ══════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════ */
+#testimonials { background:var(--bg); padding:var(--section-pad) 0; }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px; }
+.testi-card {
+  background:var(--surface); border:1px solid var(--rule);
+  border-radius:12px; padding:32px 28px;
+  transition:all .3s;
+}
+.testi-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.08); }
+.testi-stars { color:var(--gold2); font-size:13px; margin-bottom:14px; letter-spacing:2px; }
+.testi-quote { font-size:14px; color:var(--ink2); line-height:1.75; margin-bottom:20px; font-style:italic; }
+.testi-divider { width:32px; height:2px; background:linear-gradient(90deg, var(--electric), var(--teal)); border-radius:2px; margin-bottom:14px; }
+.testi-attr strong { display:block; font-size:13px; font-weight:600; color:var(--navy); font-family:'Syne',sans-serif; }
+.testi-attr span { font-family:'DM Mono',monospace; font-size:9.5px; color:var(--muted); letter-spacing:.04em; }
+
+/* ══════════════════════════════════════
+   CONTACT SECTION
+   ══════════════════════════════════════ */
+#contact { background:var(--navy); padding:var(--section-pad) 0; position:relative; overflow:hidden; }
+#contact::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 10% 50%, rgba(37,99,235,.2) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 90% 50%, rgba(8,145,178,.15) 0%, transparent 70%);
+}
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; position:relative; z-index:1; }
+.contact-l {}
+.contact-l h2 { color:white; margin-bottom:20px; }
+.contact-l p { color:rgba(255,255,255,.55); margin-bottom:36px; font-size:1rem; line-height:1.8; }
+.contact-info { display:flex; flex-direction:column; gap:16px; }
+.ci-item { display:flex; align-items:flex-start; gap:14px; }
+.ci-icon { width:40px; height:40px; border-radius:8px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+.ci-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:4px; }
+.ci-val { font-size:13.5px; color:white; }
+
+/* Contact form */
+.contact-form { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:36px; backdrop-filter:blur(12px); }
+.form-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:white; margin-bottom:24px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-group { display:flex; flex-direction:column; gap:6px; }
+.form-group.full { grid-column:span 2; }
+.form-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.form-input, .form-select, .form-textarea {
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:6px; padding:12px 14px; color:white; font-family:'Inter',sans-serif;
+  font-size:13px; transition:border-color .2s; outline:none;
+  -webkit-appearance:none;
+}
+.form-input::placeholder, .form-textarea::placeholder { color:rgba(255,255,255,.25); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color:rgba(37,99,235,.5); background:rgba(255,255,255,.08); }
+.form-select { cursor:pointer; }
+.form-select option { background:var(--navy2); color:white; }
+.form-textarea { resize:vertical; min-height:100px; }
+.form-submit {
+  grid-column:span 2; width:100%;
+  padding:14px; border:none; cursor:pointer; border-radius:6px;
+  background:linear-gradient(135deg, var(--electric) 0%, var(--teal) 100%);
+  color:white; font-family:'Syne',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; transition:all .25s;
+  box-shadow:0 4px 16px rgba(37,99,235,.4); margin-top:6px;
+}
+.form-submit:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.5); }
+
+/* ══════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════ */
+footer {
+  background: #060d1a;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:72px 0 32px;
+}
+.footer-top { display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr; gap:60px; margin-bottom:56px; }
+.footer-brand { margin-bottom:20px; }
+.footer-tagline { font-size:13px; color:rgba(255,255,255,.35); line-height:1.8; max-width:260px; margin-bottom:24px; }
+.footer-socials { display:flex; gap:10px; }
+.social-btn {
+  width:36px; height:36px; border-radius:6px; background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center;
+  font-size:14px; transition:all .2s; cursor:pointer;
+}
+.social-btn:hover { background:rgba(37,99,235,.2); border-color:rgba(37,99,235,.4); }
+.footer-col h6 { font-family:'Syne',sans-serif; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:white; margin-bottom:20px; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul a { font-size:13px; color:rgba(255,255,255,.4); transition:color .2s; }
+.footer-col ul a:hover { color:var(--teal2); }
+.footer-address { font-size:13px; color:rgba(255,255,255,.4); line-height:1.7; margin-top:12px; }
+.footer-address strong { color:rgba(255,255,255,.7); display:block; margin-bottom:4px; font-family:'Syne',sans-serif; font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding-top:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.footer-bottom p { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.1em; color:rgba(255,255,255,.2); }
+.footer-bottom a { color:rgba(255,255,255,.25); transition:color .2s; }
+.footer-bottom a:hover { color:var(--teal2); }
+.footer-legal { display:flex; gap:20px; }
+
+/* ══════════════════════════════════════
+   MOBILE NAV MENU
+   ══════════════════════════════════════ */
+.mobile-menu {
+  display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0;
+  background:rgba(10,22,40,.98); backdrop-filter:blur(20px);
+  z-index:999; flex-direction:column; padding:32px 28px; gap:4px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:rgba(255,255,255,.7); font-size:1.2rem; font-family:'Syne',sans-serif; font-weight:700; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06); transition:color .2s; }
+.mobile-menu a:hover { color:var(--teal2); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media(max-width:1100px) {
+  .hero-inner { grid-template-columns:1fr; gap:48px; }
+  .hero-r { display:none; }
+  .about-grid { grid-template-columns:1fr; gap:48px; }
+  .about-card-stack { height:auto; position:static; }
+  .a-card { position:static; margin-bottom:12px; }
+  .a-card-1,.a-card-2,.a-card-3 { right:auto; left:auto; bottom:auto; top:auto; }
+  .services-grid { grid-template-columns:1fr; }
+  .metrics-row { grid-template-columns:1fr 1fr; }
+  .portfolio-bento { grid-template-columns:1fr; }
+  .pb-c1,.pb-c2,.pb-c3,.pb-c4,.pb-c5,.pb-c6,.pb-c7 { grid-column:span 12; }
+  .co-bento { grid-template-columns:1fr 1fr; }
+  .dash-grid { grid-template-columns:1fr; }
+  .dg-c3,.dg-c4,.dg-c5,.dg-c6,.dg-c7,.dg-c8 { grid-column:span 12; }
+  .method-steps { grid-template-columns:1fr 1fr; gap:32px; }
+  .method-steps::before { display:none; }
+  .pricing-grid { grid-template-columns:1fr; gap:16px; }
+  .testi-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .footer-top { grid-template-columns:1fr 1fr; gap:32px; }
+  .wrap { padding:0 24px; }
+  #nav .nav-links,.nav-contact { display:none; }
+  .hamburger { display:flex; }
+  section { padding:72px 0; }
+  --section-pad: 72px;
+}
+
+@media(max-width:640px) {
+  h1 { font-size:2.4rem; }
+  h2 { font-size:1.8rem; }
+  .co-bento { grid-template-columns:1fr; }
+  .metrics-row { grid-template-columns:1fr 1fr; }
+  .form-grid { grid-template-columns:1fr; }
+  .form-group.full { grid-column:span 1; }
+  .form-submit { grid-column:span 1; }
+  .footer-top { grid-template-columns:1fr; }
+  .about-pillars { grid-template-columns:1fr; }
+  .kpi-row { grid-template-columns:1fr; }
+}
+
+/* ── UTILITY: focus ring ── */
+*:focus-visible { outline:2px solid var(--electric); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#hero">
+      <div class="logo-mark">
+        <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8.5" stroke="rgba(255,255,255,.6)" stroke-width="1"/>
+          <path d="M11 5V11L15.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="11" cy="11" r="1.8" fill="#06b6d4"/>
+        </svg>
+      </div>
+      <div class="logo-name">Theos<span>Analytics</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Case Studies</a></li>
+      <li><a href="#companies">Clients</a></li>
+      <li><a href="#dashboard">Intelligence</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-contact mono">hello@theosanalytics.co</span>
+      <a href="#contact" class="nav-cta">Engage Us →</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#portfolio" onclick="toggleMenu()">Case Studies</a>
+  <a href="#companies" onclick="toggleMenu()">Clients</a>
+  <a href="#dashboard" onclick="toggleMenu()">Intelligence</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#contact" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-l">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        <span class="badge-txt">Now Accepting New Engagements · 2026</span>
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Intelligence<br>
+        that gives you<br>
+        <span class="line-accent">the edge.</span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">Theos Analytics delivers executive-grade competitive intelligence, market research, and strategic analysis — helping growth companies across the UK, US, and Canada move faster and smarter than their rivals.</p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#portfolio" class="btn btn-primary">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          View Case Studies
+        </a>
+        <a href="#contact" class="btn btn-outline">Book Discovery Call</a>
+      </div>
+      <div class="hero-trust reveal reveal-delay-4">
+        <div class="trust-logos">
+          <span class="trust-logo">ASOS</span>
+          <span class="trust-div"></span>
+          <span class="trust-logo">Unilever</span>
+          <span class="trust-div"></span>
+          <span class="trust-logo">Gore‑Tex</span>
+          <span class="trust-div"></span>
+          <span class="trust-logo">P&amp;G</span>
+          <span class="trust-div"></span>
+          <span class="trust-logo">Godrej</span>
+          <span class="trust-div"></span>
+          <span class="trust-logo mono" style="color:rgba(255,255,255,.25);font-size:9px;">+8 more</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-r reveal reveal-delay-2">
+      <div class="hero-dashboard">
+        <div class="dash-topbar">
+          <div class="dash-dot" style="background:#ff5f56;"></div>
+          <div class="dash-dot" style="background:#ffbd2e;"></div>
+          <div class="dash-dot" style="background:#27c93f;"></div>
+          <span class="dash-title">Theos Analytics · Intelligence Dashboard · Live</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-kpi-row">
+            <div class="dash-kpi">
+              <div class="kpi-num">14<span style="font-size:.9rem;">+</span></div>
+              <div class="kpi-label">Brands Studied</div>
+              <div class="kpi-trend">↑ Global reach</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="kpi-num">40<span style="font-size:.9rem;">+</span></div>
+              <div class="kpi-label">Frameworks</div>
+              <div class="kpi-trend">↑ Applied</div>
+            </div>
+            <div class="dash-kpi">
+              <div class="kpi-num">9</div>
+              <div class="kpi-label">Countries</div>
+              <div class="kpi-trend">↑ Covered</div>
+            </div>
+          </div>
+          <div class="dash-chart">
+            <div class="dash-chart-title">Market intelligence engagements by sector</div>
+            <div class="mini-bars" id="heroBars">
+              <!-- Rendered by JS -->
+            </div>
+            <div style="display:flex;gap:4px;margin-top:6px;">
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">FMCG</span>
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">Retail</span>
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">Fintech</span>
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">E-com</span>
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">Consult</span>
+              <span style="flex:1;font-family:'DM Mono',monospace;font-size:7.5px;color:rgba(255,255,255,.25);text-align:center;">Intl.</span>
+            </div>
+          </div>
+          <div class="dash-companies">
+            <span class="co-chip">Gore-Tex</span><span class="co-chip">ASOS</span>
+            <span class="co-chip">Unilever</span><span class="co-chip">Godrej</span>
+            <span class="co-chip">VividPay</span><span class="co-chip">Kreditz</span>
+            <span class="co-chip">+7 more</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float-badge">
+        <div class="float-icon">📊</div>
+        <div class="float-text">
+          <strong>McKinsey-grade insight</strong>
+          <span>At a fraction of the cost</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span class="scroll-txt">Scroll to explore</span>
+  </div>
+</section>
+
+<!-- Marquee strip -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item">Gore-Tex</div>
+    <div class="marquee-item">ASOS PLC</div>
+    <div class="marquee-item">Unilever</div>
+    <div class="marquee-item">Procter &amp; Gamble</div>
+    <div class="marquee-item">Godrej Group</div>
+    <div class="marquee-item">VividPay</div>
+    <div class="marquee-item">Kreditz</div>
+    <div class="marquee-item">Sainsbury's</div>
+    <div class="marquee-item">Tesco PLC</div>
+    <div class="marquee-item">Currys PLC</div>
+    <div class="marquee-item">Uniqlo</div>
+    <div class="marquee-item">Compass Group</div>
+    <div class="marquee-item">BestRiskControl</div>
+    <div class="marquee-item">Gore-Tex</div>
+    <div class="marquee-item">ASOS PLC</div>
+    <div class="marquee-item">Unilever</div>
+    <div class="marquee-item">Procter &amp; Gamble</div>
+    <div class="marquee-item">Godrej Group</div>
+    <div class="marquee-item">VividPay</div>
+    <div class="marquee-item">Kreditz</div>
+    <div class="marquee-item">Sainsbury's</div>
+    <div class="marquee-item">Tesco PLC</div>
+    <div class="marquee-item">Currys PLC</div>
+    <div class="marquee-item">Uniqlo</div>
+    <div class="marquee-item">Compass Group</div>
+    <div class="marquee-item">BestRiskControl</div>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card-stack">
+          <div class="a-card a-card-1">
+            <div class="a-card-title">Analytical Capabilities</div>
+            <div class="stat-chips">
+              <span class="stat-chip sc-blue">📊 SWOT Analysis</span>
+              <span class="stat-chip sc-teal">🌐 PESTLE</span>
+              <span class="stat-chip sc-gold">⚡ Porter's 5 Forces</span>
+              <span class="stat-chip sc-green">📈 Ansoff Matrix</span>
+              <span class="stat-chip sc-violet">🎯 BCG Matrix</span>
+              <span class="stat-chip sc-blue">🔄 RACE Framework</span>
+              <span class="stat-chip sc-teal">🎨 McKinsey 7S</span>
+              <span class="stat-chip sc-gold">💡 Value Chain</span>
+            </div>
+          </div>
+          <div class="a-card a-card-2">
+            <div class="a-card-title">Intelligence Record</div>
+            <div class="metric-pair">
+              <div><div class="mp-val">14+</div><div class="mp-lbl">Global brands</div></div>
+              <div><div class="mp-val">9</div><div class="mp-lbl">Countries</div></div>
+              <div><div class="mp-val">40+</div><div class="mp-lbl">Frameworks</div></div>
+            </div>
+            <div class="bar-mini-chart" style="margin-top:16px;">
+              <div class="bmc-row"><div class="bmc-lbl">FMCG</div><div class="bmc-track"><div class="bmc-fill" style="width:85%;background:linear-gradient(90deg,#2563eb,#06b6d4);"></div></div></div>
+              <div class="bmc-row"><div class="bmc-lbl">Retail</div><div class="bmc-track"><div class="bmc-fill" style="width:72%;background:linear-gradient(90deg,#06b6d4,#7c3aed);"></div></div></div>
+              <div class="bmc-row"><div class="bmc-lbl">Fintech</div><div class="bmc-track"><div class="bmc-fill" style="width:60%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div></div>
+              <div class="bmc-row"><div class="bmc-lbl">E-Commerce</div><div class="bmc-track"><div class="bmc-fill" style="width:68%;background:linear-gradient(90deg,#059669,#06b6d4);"></div></div></div>
+            </div>
+          </div>
+          <div class="a-card a-card-3">
+            <div class="a-card-title">Markets Served</div>
+            <div class="stat-chips">
+              <span class="stat-chip sc-blue">🇬🇧 United Kingdom</span>
+              <span class="stat-chip sc-teal">🇺🇸 United States</span>
+              <span class="stat-chip sc-gold">🇨🇦 Canada</span>
+              <span class="stat-chip sc-green">🇮🇳 India</span>
+              <span class="stat-chip sc-violet">🇸🇪 Sweden</span>
+              <span class="stat-chip sc-blue">🌍 Africa</span>
+              <span class="stat-chip sc-teal">🌏 SE Asia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="eyebrow reveal">About Theos Analytics</div>
+        <h2 class="reveal reveal-delay-1">Where data becomes<br>competitive advantage.</h2>
+        <p class="reveal reveal-delay-2">Most growth-stage businesses operate in a fog — making strategic decisions without a clear picture of where their competitors are winning, where the market is heading, or which growth levers are genuinely available to them. <strong>That is an expensive way to operate.</strong></p>
+        <p class="reveal reveal-delay-3">Theos Analytics was built to solve that. We produce research-driven strategic intelligence — structured like a top-tier consultancy, delivered at a price that makes sense for the businesses that need it most. Our work gives founders, executives, and growth teams the clarity to move faster and smarter than their rivals.</p>
+        <div class="about-pillars reveal reveal-delay-4">
+          <div class="pillar">
+            <span class="pillar-icon">🔍</span>
+            <div class="pillar-title">Research Depth</div>
+            <div class="pillar-desc">Annual reports, IBISWorld, Statista, SimilarWeb, SEMrush, industry journals — triangulated into clean, usable insight.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🎯</span>
+            <div class="pillar-title">Frameworks Applied</div>
+            <div class="pillar-desc">12 proven strategic frameworks deployed per engagement, not as templates, but calibrated to your specific competitive context.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">📦</span>
+            <div class="pillar-title">Board-Ready Output</div>
+            <div class="pillar-desc">Executive PDF reports, PowerPoint decks, and Excel dashboards — formatted for leadership, not just analysis teams.</div>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">⚡</span>
+            <div class="pillar-title">Fast Turnaround</div>
+            <div class="pillar-desc">10-day standard delivery. 48-hour priority turnaround for retainer clients. No bureaucracy, no waiting weeks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ METRICS BAND ══════════════ -->
+<section id="metrics" style="padding:0;">
+  <div class="metrics-row">
+    <div class="metric-cell reveal">
+      <div class="metric-num" id="m1">14<sub>+</sub></div>
+      <div class="metric-lbl">Global brands studied</div>
+    </div>
+    <div class="metric-cell reveal reveal-delay-1">
+      <div class="metric-num" id="m2">40<sub>+</sub></div>
+      <div class="metric-lbl">Frameworks deployed</div>
+    </div>
+    <div class="metric-cell reveal reveal-delay-2">
+      <div class="metric-num" id="m3">9</div>
+      <div class="metric-lbl">Countries covered</div>
+    </div>
+    <div class="metric-cell reveal reveal-delay-3">
+      <div class="metric-num" id="m4">6</div>
+      <div class="metric-lbl">Industry sectors</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="reveal reveal-delay-1" style="color:white;">Four core intelligence<br>service lines.</h2>
+    <p class="services-intro reveal reveal-delay-2">Each engagement is scoped, researched, and delivered by our lead analyst — not outsourced, not templated. Every insight connects to a decision your business actually needs to make.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01 / 04</div>
+        <div class="service-icon si-blue">🔬</div>
+        <div class="service-title">Market & Competitor Intelligence</div>
+        <div class="service-desc">Deep analysis of your competitive landscape — who's winning, why, and where the gaps are that your business can exploit. We go beyond surface-level research to identify strategic vulnerabilities in your competitors that aren't obvious from a Google search.</div>
+        <div class="service-tags">
+          <span class="svc-tag">Competitor Benchmarking</span>
+          <span class="svc-tag">Market Entry</span>
+          <span class="svc-tag">SWOT / PESTLE</span>
+          <span class="svc-tag">Porter's 5 Forces</span>
+          <span class="svc-tag">Pricing Analysis</span>
+          <span class="svc-tag">Gap Identification</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">02 / 04</div>
+        <div class="service-icon si-teal">📈</div>
+        <div class="service-title">Business Growth Strategy</div>
+        <div class="service-desc">Structured growth intelligence that connects market opportunity to your business model. We identify which revenue levers are realistic, which customer segments are underserved, and what your strategic roadmap should look like for the next 12–24 months.</div>
+        <div class="service-tags">
+          <span class="svc-tag">Growth Opportunity Reports</span>
+          <span class="svc-tag">Ansoff Matrix</span>
+          <span class="svc-tag">Revenue Optimisation</span>
+          <span class="svc-tag">Digital Strategy</span>
+          <span class="svc-tag">Expansion Feasibility</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">03 / 04</div>
+        <div class="service-icon si-gold">🎯</div>
+        <div class="service-title">Sales & Lead Intelligence</div>
+        <div class="service-desc">B2B lead research and prospect intelligence that transforms cold outreach into informed conversations. We build targeted databases with decision-maker profiles, company pain points, and competitor context — so your sales team opens with insight, not just a pitch.</div>
+        <div class="service-tags">
+          <span class="svc-tag">B2B Lead Databases</span>
+          <span class="svc-tag">Decision-Maker Profiling</span>
+          <span class="svc-tag">Market Mapping</span>
+          <span class="svc-tag">Buyer Personas</span>
+          <span class="svc-tag">Sales Dashboards</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-num">04 / 04</div>
+        <div class="service-icon si-green">📋</div>
+        <div class="service-title">Investor & Board Reports</div>
+        <div class="service-desc">Investor-grade research and business intelligence documents that give stakeholders the strategic clarity they need. From feasibility studies to due diligence support, we produce reports that stand up to scrutiny and move deals forward.</div>
+        <div class="service-tags">
+          <span class="svc-tag">Feasibility Studies</span>
+          <span class="svc-tag">Investor Briefs</span>
+          <span class="svc-tag">Due Diligence</span>
+          <span class="svc-tag">Industry Outlook</span>
+          <span class="svc-tag">Board Presentations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ COMPANIES ══════════════ -->
+<section id="companies">
+  <div class="wrap">
+    <div class="eyebrow reveal">Research Portfolio</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:60px;">
+      <h2 class="reveal reveal-delay-1" style="color:white;">Brands we've<br>studied &amp; analysed.</h2>
+      <p class="companies-intro reveal reveal-delay-2" style="margin:0;">Strategic intelligence delivered across these organisations — from FTSE-listed giants to high-growth European fintechs.</p>
+    </div>
+    <div class="co-bento reveal">
+      <div class="co-b"><span class="co-flag">🇺🇸</span><div class="co-name">Gore-Tex</div><div class="co-sector">Performance Materials · B2B2C</div><div class="co-desc">Market positioning, B2B2C licensing model evaluation, sustainability premium analysis across EU and North American markets.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">ASOS</div><div class="co-sector">E-Commerce · Digital Fashion</div><div class="co-desc">Full RACE framework digital audit, customer acquisition benchmarking vs. Zalando, SHEIN, Boohoo. 42-page strategy report.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">VividPay</div><div class="co-sector">Fintech · B2B Payments</div><div class="co-desc">Competitive positioning vs. Wise and Revolut Business. B2B corridor identification. Go-to-market strategy analysis.</div></div>
+      <div class="co-b"><span class="co-flag">🇸🇪</span><div class="co-name">Kreditz</div><div class="co-sector">Fintech · Credit Intelligence</div><div class="co-desc">EU market entry feasibility across 4 jurisdictions. Regulatory mapping, 8-competitor scoring matrix.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">Unilever</div><div class="co-sector">FMCG · Consumer Goods</div><div class="co-desc">Brand portfolio analysis, ESG strategy benchmarking, pricing architecture review across emerging markets.</div></div>
+      <div class="co-b"><span class="co-flag">🇺🇸</span><div class="co-name">Procter &amp; Gamble</div><div class="co-sector">FMCG · Personal Care</div><div class="co-desc">Competitive strategy vs. Unilever and Henkel. Premiumisation mapping. Innovation pipeline benchmarking by category.</div></div>
+      <div class="co-b"><span class="co-flag">🇮🇳</span><div class="co-name">Godrej Group</div><div class="co-sector">Conglomerate · FMCG &amp; Real Estate</div><div class="co-desc">International expansion feasibility across East Africa and SE Asia. ESG benchmarking vs. 6 global FMCG peers.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">Sainsbury's</div><div class="co-sector">Retail · Grocery</div><div class="co-desc">Head-to-head analysis vs. Tesco — pricing, loyalty, digital, supply chain. Quantified 8-point retention gap.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">Currys PLC</div><div class="co-sector">Retail · Consumer Electronics</div><div class="co-desc">Omnichannel audit, digital transformation roadmap, competitor pressure analysis from Amazon, AO, John Lewis.</div></div>
+      <div class="co-b"><span class="co-flag">🇯🇵</span><div class="co-name">Uniqlo</div><div class="co-sector">Retail · Apparel</div><div class="co-desc">UK market entry analysis, STP segmentation, brand positioning vs. Zara and H&M for British high street context.</div></div>
+      <div class="co-b"><span class="co-flag">🇬🇧</span><div class="co-name">Compass Group</div><div class="co-sector">Food Service · B2B</div><div class="co-desc">Post-pandemic recovery benchmarking. Expansion feasibility for healthcare and education verticals across UK and EU.</div></div>
+      <div class="co-b"><span class="co-flag">🌍</span><div class="co-name">BestRiskControl</div><div class="co-sector">Risk Management · Consulting</div><div class="co-desc">International expansion across 4 markets. Competitor mapping, regulatory risk, market sizing and entry recommendations.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PORTFOLIO ══════════════ -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="port-head">
+      <div>
+        <div class="eyebrow reveal">Case Studies</div>
+        <h2 class="reveal reveal-delay-1">Work that delivered<br>real decisions.</h2>
+      </div>
+      <div class="filter-tabs reveal reveal-delay-2">
+        <button class="ftab on" onclick="filterPB('all',this)">All</button>
+        <button class="ftab" onclick="filterPB('comp',this)">Competitive</button>
+        <button class="ftab" onclick="filterPB('mkt',this)">Market</button>
+        <button class="ftab" onclick="filterPB('dig',this)">Digital</button>
+        <button class="ftab" onclick="filterPB('fmcg',this)">FMCG</button>
+      </div>
+    </div>
+
+    <div class="portfolio-bento" id="portBento">
+
+      <!-- ASOS — wide card -->
+      <div class="pb pb-c1 reveal" data-c="dig">
+        <div class="pb-num">01</div>
+        <span class="pb-tag">Digital Strategy · E-Commerce</span>
+        <div class="pb-title">ASOS — Full Digital Intelligence Report</div>
+        <div class="pb-co">ASOS PLC · London, United Kingdom</div>
+        <div class="pb-desc">Complete digital strategy audit using RACE framework, 7Ps analysis, and STP segmentation. Benchmarked against Boohoo, Zalando, SHEIN, and H&M. Delivered as a 42-page executive strategy report.</div>
+        <ul class="pb-outcomes">
+          <li>3 under-leveraged acquisition channels identified vs. top competitors</li>
+          <li>12% retention gap vs. Zalando benchmark — mapped and quantified</li>
+          <li>Social commerce pivot recommended with Gen Z data support</li>
+        </ul>
+        <div class="pb-chart">
+          <div class="pb-chart-title">Digital performance index — vs. key competitors</div>
+          <div class="hbar-row"><div class="hbar-lbl">ASOS</div><div class="hbar-track"><div class="hbar-fill" style="width:72%;background:linear-gradient(90deg,#2563eb,#0891b2);"></div></div><div class="hbar-val">72</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Zalando</div><div class="hbar-track"><div class="hbar-fill" style="width:84%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div><div class="hbar-val">84</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">SHEIN</div><div class="hbar-track"><div class="hbar-fill" style="width:91%;background:linear-gradient(90deg,#e11d48,#f43f5e);"></div></div><div class="hbar-val">91</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">H&M</div><div class="hbar-track"><div class="hbar-fill" style="width:68%;background:linear-gradient(90deg,#64748b,#94a3b8);"></div></div><div class="hbar-val">68</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Boohoo</div><div class="hbar-track"><div class="hbar-fill" style="width:61%;background:linear-gradient(90deg,#7c3aed,#8b5cf6);"></div></div><div class="hbar-val">61</div></div>
+        </div>
+      </div>
+
+      <div class="pb pb-c2 reveal reveal-delay-1" data-c="comp">
+        <div class="pb-num">02</div>
+        <span class="pb-tag">Competitive Intelligence · Grocery</span>
+        <div class="pb-title">Sainsbury's vs. Tesco</div>
+        <div class="pb-co">Sainsbury's PLC &amp; Tesco PLC · UK</div>
+        <div class="pb-desc">Head-to-head benchmarking across pricing, digital UX, loyalty ROI, supply chain resilience, and market share trajectory. Porter's 5 Forces and Value Chain applied.</div>
+        <ul class="pb-outcomes">
+          <li>Tesco Clubcard's 8-point retention advantage quantified</li>
+          <li>£200M+ digital personalisation gap identified</li>
+          <li>3 strategic counter-moves surfaced for Sainsbury's</li>
+        </ul>
+        <div class="pb-chart">
+          <div class="pb-chart-title">UK grocery market share (%)</div>
+          <div class="hbar-row"><div class="hbar-lbl">Tesco</div><div class="hbar-track"><div class="hbar-fill" style="width:27%;background:linear-gradient(90deg,#0f2040,#2563eb);"></div></div><div class="hbar-val">27%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Sainsbury's</div><div class="hbar-track"><div class="hbar-fill" style="width:15%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div><div class="hbar-val">15%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Asda</div><div class="hbar-track"><div class="hbar-fill" style="width:14%;background:linear-gradient(90deg,#64748b,#94a3b8);"></div></div><div class="hbar-val">14%</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Aldi</div><div class="hbar-track"><div class="hbar-fill" style="width:11%;background:linear-gradient(90deg,#059669,#06b6d4);"></div></div><div class="hbar-val">11%</div></div>
+        </div>
+      </div>
+
+      <div class="pb pb-c3 reveal" data-c="fmcg">
+        <div class="pb-num">03</div>
+        <span class="pb-tag">FMCG · Global Benchmark</span>
+        <div class="pb-title">Unilever vs. P&amp;G</div>
+        <div class="pb-co">Global</div>
+        <ul class="pb-outcomes">
+          <li>P&G premiumisation vs. Unilever volume tension mapped</li>
+          <li>4 skincare white-space opportunities surfaced</li>
+          <li>ESG credibility risk in APAC flagged</li>
+        </ul>
+        <div class="pb-donut" style="margin-top:16px;">
+          <svg width="72" height="72" viewBox="0 0 72 72">
+            <circle cx="36" cy="36" r="26" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+            <circle cx="36" cy="36" r="26" fill="none" stroke="#2563eb" stroke-width="10" stroke-dasharray="82 81" stroke-dashoffset="20" transform="rotate(-90 36 36)"/>
+            <circle cx="36" cy="36" r="26" fill="none" stroke="#06b6d4" stroke-width="10" stroke-dasharray="51 112" stroke-dashoffset="-62" transform="rotate(-90 36 36)"/>
+            <text x="36" y="40" text-anchor="middle" font-size="11" font-family="'Syne',sans-serif" fill="#0f172a" font-weight="700">5</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="dl-row"><div class="dl-dot" style="background:#2563eb;"></div><div class="dl-lbl">P&amp;G leads</div><div class="dl-v">3</div></div>
+            <div class="dl-row"><div class="dl-dot" style="background:#06b6d4;"></div><div class="dl-lbl">UL leads</div><div class="dl-v">2</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb pb-c4 reveal reveal-delay-1" data-c="mkt">
+        <div class="pb-num">04</div>
+        <span class="pb-tag">Fintech · Market Entry</span>
+        <div class="pb-title">VividPay &amp; Kreditz</div>
+        <div class="pb-co">UK &amp; Sweden</div>
+        <ul class="pb-outcomes">
+          <li>2 B2B payment corridors identified for VividPay</li>
+          <li>EU regulatory pathway mapped for Kreditz</li>
+          <li>8-competitor scoring matrix built</li>
+        </ul>
+        <div class="pb-chart" style="margin-top:12px;">
+          <div class="pb-chart-title">Competitor threat level</div>
+          <div class="hbar-row"><div class="hbar-lbl">Wise Biz</div><div class="hbar-track"><div class="hbar-fill" style="width:88%;background:linear-gradient(90deg,#e11d48,#f43f5e);"></div></div><div class="hbar-val">HIGH</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Revolut</div><div class="hbar-track"><div class="hbar-fill" style="width:82%;background:linear-gradient(90deg,#e11d48,#f43f5e);"></div></div><div class="hbar-val">HIGH</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Airwallex</div><div class="hbar-track"><div class="hbar-fill" style="width:58%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div><div class="hbar-val">MED</div></div>
+        </div>
+      </div>
+
+      <div class="pb pb-c5 reveal reveal-delay-2" data-c="mkt">
+        <div class="pb-num">05</div>
+        <span class="pb-tag">International Expansion</span>
+        <div class="pb-title">Godrej Group</div>
+        <div class="pb-co">Mumbai, India · Global</div>
+        <ul class="pb-outcomes">
+          <li>East Africa as highest-ROI corridor identified</li>
+          <li>ESG benchmarked vs. 6 global FMCG peers</li>
+          <li>Home care white space mapped in 3 markets</li>
+        </ul>
+        <!-- Opportunity positioning map -->
+        <div style="position:relative;height:110px;background:var(--bg);border-radius:6px;margin-top:12px;overflow:hidden;">
+          <div style="position:absolute;bottom:18px;left:16px;right:16px;height:1px;background:var(--rule);"></div>
+          <div style="position:absolute;top:10px;bottom:18px;left:50%;width:1px;background:var(--rule);"></div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;left:16px;">LOW EASE</div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;right:10px;">HIGH EASE</div>
+          <div style="position:absolute;left:68%;top:22%;width:20px;height:20px;border-radius:50%;background:#2563eb;transform:translate(-50%,-50%);border:2px solid white;box-shadow:0 2px 8px rgba(37,99,235,.5);"></div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7.5px;color:#2563eb;left:68%;top:8%;transform:translateX(-50%);white-space:nowrap;">E. Africa ★</div>
+          <div style="position:absolute;left:52%;top:38%;width:14px;height:14px;border-radius:50%;background:#d97706;transform:translate(-50%,-50%);"></div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:#d97706;left:56%;top:28%;white-space:nowrap;">SE Asia</div>
+          <div style="position:absolute;left:28%;top:30%;width:11px;height:11px;border-radius:50%;background:var(--faint);transform:translate(-50%,-50%);"></div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);left:18%;top:20%;white-space:nowrap;">W. EU</div>
+        </div>
+      </div>
+
+      <div class="pb pb-c6 reveal" data-c="fmcg">
+        <div class="pb-num">06</div>
+        <span class="pb-tag">Consumer Behaviour · B2B2C</span>
+        <div class="pb-title">Gore-Tex — Positioning & Consumer Analysis</div>
+        <div class="pb-co">W.L. Gore &amp; Associates · USA / EU</div>
+        <div class="pb-desc">Consumer behaviour deep-dive for Gore-Tex's B2B2C licensing model. Sustainability premium willingness-to-pay analysis, brand dilution risk, and licensing governance recommendations.</div>
+        <ul class="pb-outcomes">
+          <li>B2B2C licensing risks and brand dilution exposure mapped</li>
+          <li>Sustainability premium quantified across 3 consumer segments</li>
+          <li>2 brand-protection governance mechanisms recommended</li>
+        </ul>
+      </div>
+
+      <div class="pb pb-c7 reveal reveal-delay-1" data-c="dig">
+        <div class="pb-num">07</div>
+        <span class="pb-tag">Retail Strategy · Electronics</span>
+        <div class="pb-title">Currys PLC — Omnichannel Strategy Audit</div>
+        <div class="pb-co">Currys PLC · United Kingdom</div>
+        <div class="pb-desc">Omnichannel strategy audit, digital transformation roadmap, and competitive pressure analysis from Amazon, AO and John Lewis. Operational efficiency gap analysis and digital-first pivot recommendations.</div>
+        <ul class="pb-outcomes">
+          <li>4 operational efficiency gaps identified across in-store and digital</li>
+          <li>Amazon/AO competitive threat scored and mapped</li>
+          <li>Digital-first pivot roadmap delivered with 18-month timeline</li>
+        </ul>
+        <div class="pb-chart" style="margin-top:16px;">
+          <div class="pb-chart-title">Omnichannel capability index</div>
+          <div class="hbar-row"><div class="hbar-lbl">Digital UX</div><div class="hbar-track"><div class="hbar-fill" style="width:58%;background:linear-gradient(90deg,#7c3aed,#8b5cf6);"></div></div><div class="hbar-val">58</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Fulfilment</div><div class="hbar-track"><div class="hbar-fill" style="width:72%;background:linear-gradient(90deg,#059669,#06b6d4);"></div></div><div class="hbar-val">72</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">In-store CX</div><div class="hbar-track"><div class="hbar-fill" style="width:81%;background:linear-gradient(90deg,#2563eb,#0891b2);"></div></div><div class="hbar-val">81</div></div>
+          <div class="hbar-row"><div class="hbar-lbl">Loyalty</div><div class="hbar-track"><div class="hbar-fill" style="width:44%;background:linear-gradient(90deg,#e11d48,#f43f5e);"></div></div><div class="hbar-val">44</div></div>
+        </div>
+      </div>
+
+    </div><!-- /portfolio-bento -->
+  </div>
+</section>
+
+<!-- ══════════════ DASHBOARD ══════════════ -->
+<section id="dashboard">
+  <div class="wrap">
+    <div class="eyebrow reveal">Live Intelligence</div>
+    <h2 class="reveal reveal-delay-1">Strategic data<br>visualised.</h2>
+    <p class="reveal reveal-delay-2" style="color:var(--muted);max-width:500px;margin-top:12px;">A sample of the intelligence dashboards and data visualisations Theos Analytics produces as standard across every engagement.</p>
+    <div class="dash-grid">
+
+      <!-- Area chart — engagement output over time -->
+      <div class="dg dg-c8 reveal">
+        <div class="dg-title">Research Engagement Volume — 2024–2026</div>
+        <div class="dg-sub">Number of strategic reports delivered by quarter</div>
+        <div class="area-chart-wrap">
+          <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:140px;">
+            <defs>
+              <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:.3"/>
+                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0"/>
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#2563eb"/>
+                <stop offset="100%" style="stop-color:#06b6d4"/>
+              </linearGradient>
+            </defs>
+            <!-- Grid lines -->
+            <line x1="0" y1="110" x2="560" y2="110" stroke="#e2e8f0" stroke-width=".5"/>
+            <line x1="0" y1="80" x2="560" y2="80" stroke="#e2e8f0" stroke-width=".5"/>
+            <line x1="0" y1="50" x2="560" y2="50" stroke="#e2e8f0" stroke-width=".5"/>
+            <line x1="0" y1="20" x2="560" y2="20" stroke="#e2e8f0" stroke-width=".5"/>
+            <!-- Area fill -->
+            <path d="M0,105 C40,100 80,95 120,88 C160,82 200,78 240,70 C280,62 320,58 360,48 C400,38 440,30 480,22 C510,16 540,14 560,12 L560,130 L0,130 Z" fill="url(#areaGrad)"/>
+            <!-- Line -->
+            <path d="M0,105 C40,100 80,95 120,88 C160,82 200,78 240,70 C280,62 320,58 360,48 C400,38 440,30 480,22 C510,16 540,14 560,12" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Dots -->
+            <circle cx="120" cy="88" r="4" fill="#2563eb" stroke="white" stroke-width="2"/>
+            <circle cx="240" cy="70" r="4" fill="#2563eb" stroke="white" stroke-width="2"/>
+            <circle cx="360" cy="48" r="4" fill="#0891b2" stroke="white" stroke-width="2"/>
+            <circle cx="480" cy="22" r="4" fill="#06b6d4" stroke="white" stroke-width="2"/>
+            <!-- Labels -->
+            <text x="80" y="128" font-family="'DM Mono',monospace" font-size="8" fill="#94a3b8">Q1 2024</text>
+            <text x="200" y="128" font-family="'DM Mono',monospace" font-size="8" fill="#94a3b8">Q3 2024</text>
+            <text x="320" y="128" font-family="'DM Mono',monospace" font-size="8" fill="#94a3b8">Q1 2025</text>
+            <text x="440" y="128" font-family="'DM Mono',monospace" font-size="8" fill="#94a3b8">Q3 2025</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="dg dg-c4 reveal reveal-delay-1">
+        <div class="dg-title">Engagement KPIs</div>
+        <div class="dg-sub">Current intelligence metrics</div>
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <div class="kpi-card-num">14+</div>
+            <div class="kpi-card-label">Brands Studied</div>
+            <div class="kpi-card-delta">↑ 40% YoY growth</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-num">9</div>
+            <div class="kpi-card-label">Countries</div>
+            <div class="kpi-card-delta">↑ 3 new in 2025</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-num">10d</div>
+            <div class="kpi-card-label">Avg. Turnaround</div>
+            <div class="kpi-card-delta">↓ 2 days faster</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-num">100%</div>
+            <div class="kpi-card-label">On-Time Delivery</div>
+            <div class="kpi-card-delta">↑ All engagements</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacked bars — sector breakdown -->
+      <div class="dg dg-c5 reveal">
+        <div class="dg-title">Engagement Mix by Sector</div>
+        <div class="dg-sub">Portfolio breakdown across service types</div>
+        <div class="stacked-wrap">
+          <div class="stacked-lbl">FMCG</div>
+          <div class="stacked-row">
+            <div class="stacked-seg" style="flex:4;background:linear-gradient(135deg,#2563eb,#1d4ed8);">40%</div>
+            <div class="stacked-seg" style="flex:3;background:linear-gradient(135deg,#0891b2,#06b6d4);">30%</div>
+            <div class="stacked-seg" style="flex:2;background:linear-gradient(135deg,#d97706,#f59e0b);">20%</div>
+            <div class="stacked-seg" style="flex:1;background:#e2e8f0;color:var(--muted);">10%</div>
+          </div>
+          <div class="stacked-lbl">Retail</div>
+          <div class="stacked-row">
+            <div class="stacked-seg" style="flex:5;background:linear-gradient(135deg,#7c3aed,#8b5cf6);">50%</div>
+            <div class="stacked-seg" style="flex:3;background:linear-gradient(135deg,#059669,#10b981);">30%</div>
+            <div class="stacked-seg" style="flex:2;background:linear-gradient(135deg,#e11d48,#f43f5e);">20%</div>
+          </div>
+          <div class="stacked-lbl">Fintech</div>
+          <div class="stacked-row">
+            <div class="stacked-seg" style="flex:6;background:linear-gradient(135deg,#0891b2,#06b6d4);">60%</div>
+            <div class="stacked-seg" style="flex:4;background:linear-gradient(135deg,#d97706,#f59e0b);">40%</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;">
+          <span style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#2563eb;display:inline-block;"></span>Competitor Intel</span>
+          <span style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#0891b2;display:inline-block;"></span>Market Research</span>
+          <span style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#d97706;display:inline-block;"></span>Growth Strategy</span>
+          <span style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:50%;background:#e11d48;display:inline-block;"></span>Lead Intel</span>
+        </div>
+      </div>
+
+      <!-- Scatter: client size vs. engagement depth -->
+      <div class="dg dg-c7 reveal reveal-delay-1">
+        <div class="dg-title">Client Portfolio — Size vs. Engagement Depth</div>
+        <div class="dg-sub">Bubble size = project scope</div>
+        <div class="scatter-wrap">
+          <div class="scatter-axis-x"></div>
+          <div class="scatter-axis-y"></div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;left:20px;">SMALLER CO.</div>
+          <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;right:10px;">LARGE CORP.</div>
+          <!-- Dots -->
+          <div class="s-dot" style="left:85%;top:20%;width:36px;height:36px;background:rgba(37,99,235,.2);border:2px solid #2563eb;"><span class="s-dot-lbl">Unilever</span></div>
+          <div class="s-dot" style="left:80%;top:35%;width:30px;height:30px;background:rgba(217,119,6,.2);border:2px solid #d97706;"><span class="s-dot-lbl">P&amp;G</span></div>
+          <div class="s-dot" style="left:75%;top:28%;width:28px;height:28px;background:rgba(8,145,178,.2);border:2px solid #0891b2;"><span class="s-dot-lbl">Tesco</span></div>
+          <div class="s-dot" style="left:65%;top:40%;width:24px;height:24px;background:rgba(124,58,237,.2);border:2px solid #7c3aed;"><span class="s-dot-lbl">ASOS</span></div>
+          <div class="s-dot" style="left:55%;top:55%;width:20px;height:20px;background:rgba(5,150,105,.2);border:2px solid #059669;"><span class="s-dot-lbl">Currys</span></div>
+          <div class="s-dot" style="left:40%;top:45%;width:18px;height:18px;background:rgba(225,29,72,.2);border:2px solid #e11d48;"><span class="s-dot-lbl">VividPay</span></div>
+          <div class="s-dot" style="left:30%;top:60%;width:15px;height:15px;background:rgba(37,99,235,.15);border:2px solid #3b82f6;"><span class="s-dot-lbl">Kreditz</span></div>
+        </div>
+      </div>
+
+      <!-- Radar chart -->
+      <div class="dg dg-c3 reveal reveal-delay-2">
+        <div class="dg-title">Framework Coverage</div>
+        <div class="dg-sub">Depth per analysis type</div>
+        <div class="radar-chart">
+          <svg viewBox="0 0 200 200" width="180" height="180">
+            <defs>
+              <linearGradient id="radarFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:.3"/>
+                <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:.3"/>
+              </linearGradient>
+            </defs>
+            <!-- Web lines -->
+            <g stroke="#e2e8f0" stroke-width=".5" fill="none">
+              <polygon points="100,30 150,65 150,135 100,170 50,135 50,65"/>
+              <polygon points="100,50 135,72.5 135,127.5 100,150 65,127.5 65,72.5"/>
+              <polygon points="100,70 120,80 120,120 100,130 80,120 80,80"/>
+            </g>
+            <!-- Spokes -->
+            <g stroke="#e2e8f0" stroke-width=".5">
+              <line x1="100" y1="30" x2="100" y2="170"/>
+              <line x1="50" y1="65" x2="150" y2="135"/>
+              <line x1="150" y1="65" x2="50" y2="135"/>
+            </g>
+            <!-- Data area -->
+            <polygon points="100,38 145,68 142,130 100,158 58,130 55,68" fill="url(#radarFill)" stroke="url(#lineGrad)" stroke-width="2"/>
+            <!-- Data dots -->
+            <circle cx="100" cy="38" r="4" fill="#2563eb"/>
+            <circle cx="145" cy="68" r="4" fill="#2563eb"/>
+            <circle cx="142" cy="130" r="4" fill="#06b6d4"/>
+            <circle cx="100" cy="158" r="4" fill="#06b6d4"/>
+            <circle cx="58" cy="130" r="4" fill="#06b6d4"/>
+            <circle cx="55" cy="68" r="4" fill="#2563eb"/>
+            <!-- Labels -->
+            <text x="100" y="22" text-anchor="middle" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">MARKET</text>
+            <text x="160" y="66" text-anchor="start" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">COMPETITIVE</text>
+            <text x="160" y="136" text-anchor="start" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">DIGITAL</text>
+            <text x="100" y="184" text-anchor="middle" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">FMCG</text>
+            <text x="40" y="136" text-anchor="end" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">GROWTH</text>
+            <text x="40" y="66" text-anchor="end" font-size="8" font-family="'DM Mono',monospace" fill="#64748b">INVESTOR</text>
+          </svg>
+        </div>
+      </div>
+
+    </div><!-- /dash-grid -->
+  </div>
+</section>
+
+<!-- ══════════════ METHODOLOGY ══════════════ -->
+<section id="methodology">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our Process</div>
+    <h2 class="reveal reveal-delay-1">How Theos Analytics<br>delivers intelligence.</h2>
+    <div class="method-steps" style="margin-top:72px;">
+      <div class="ms reveal">
+        <div class="ms-num">1</div>
+        <span class="ms-icon">🔍</span>
+        <div class="ms-title">Discovery</div>
+        <div class="ms-desc">Structured briefing to map your industry, KPIs, competitors, and the decisions this intelligence must inform.</div>
+      </div>
+      <div class="ms reveal reveal-delay-1">
+        <div class="ms-num">2</div>
+        <span class="ms-icon">📚</span>
+        <div class="ms-title">Research</div>
+        <div class="ms-desc">Annual reports, Statista, IBISWorld, SimilarWeb, SEMrush, and industry journals — triangulated and verified.</div>
+      </div>
+      <div class="ms reveal reveal-delay-2">
+        <div class="ms-num">3</div>
+        <span class="ms-icon">⚙️</span>
+        <div class="ms-title">Analysis</div>
+        <div class="ms-desc">SWOT, PESTLE, Porter's 5 Forces, Ansoff, BCG, McKinsey 7S, STP — applied to your specific competitive context.</div>
+      </div>
+      <div class="ms reveal reveal-delay-3">
+        <div class="ms-num">4</div>
+        <span class="ms-icon">💡</span>
+        <div class="ms-title">Synthesis</div>
+        <div class="ms-desc">Raw findings become executive insight: competitive implications, revenue opportunities, and ranked strategic recommendations.</div>
+      </div>
+      <div class="ms reveal reveal-delay-4">
+        <div class="ms-num">5</div>
+        <span class="ms-icon">📦</span>
+        <div class="ms-title">Delivery</div>
+        <div class="ms-desc">Board-ready PDF, strategy deck, or interactive Excel dashboard — delivered within the agreed timeline, no exceptions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICING ══════════════ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="eyebrow reveal">Engagement Pricing</div>
+    <h2 class="reveal reveal-delay-1">Transparent pricing.<br>No surprises.</h2>
+    <p class="pricing-note reveal reveal-delay-2">Every engagement includes a complimentary 30-minute discovery call and structured findings summary. Custom scopes and retainer agreements available on request.</p>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier">Intelligence Starter</div>
+        <div class="price-amount">$150</div>
+        <div class="price-per">per report · 3–5 day turnaround</div>
+        <ul class="price-list">
+          <li>Competitor snapshot (3–5 firms)</li>
+          <li>SWOT or PESTLE analysis</li>
+          <li>Market trend overview</li>
+          <li>Customer persona mapping</li>
+          <li>Executive summary PDF</li>
+        </ul>
+        <a href="#contact" class="price-cta">Get Started →</a>
+      </div>
+      <div class="price-card featured-p reveal reveal-delay-1">
+        <div class="fp-badge">Most Requested</div>
+        <div class="price-tier">Strategic Intelligence</div>
+        <div class="price-amount">$750</div>
+        <div class="price-per">per engagement · 7–10 day turnaround</div>
+        <ul class="price-list">
+          <li>Full competitor benchmarking</li>
+          <li>Market entry or growth strategy</li>
+          <li>3–5 strategic frameworks applied</li>
+          <li>Sales intelligence &amp; lead research</li>
+          <li>30-page executive report + deck</li>
+          <li>KPI dashboard (Excel)</li>
+        </ul>
+        <a href="#contact" class="price-cta">Engage Now →</a>
+      </div>
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-tier">Advisory Retainer</div>
+        <div class="price-amount">$3,500</div>
+        <div class="price-per">per month · ongoing intelligence</div>
+        <ul class="price-list">
+          <li>Monthly competitor tracking</li>
+          <li>Market signal monitoring</li>
+          <li>B2B lead intelligence (200/mo)</li>
+          <li>Quarterly strategy review</li>
+          <li>Priority 48hr turnaround</li>
+          <li>Dedicated Slack channel</li>
+        </ul>
+        <a href="#contact" class="price-cta">Book a Call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="eyebrow reveal">Client Feedback</div>
+    <h2 class="reveal reveal-delay-1">What our clients say.</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Theos Analytics gave us a level of competitor visibility we'd never had before. The report was thorough, beautifully structured, and directly shaped our Q3 strategy. Exceptional work."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-attr">
+          <strong>Chief Executive Officer</strong>
+          <span>UK E-Commerce Brand · Verified Client</span>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"We hired them for a market entry brief and got back something that genuinely read like McKinsey output — but faster and at a price point that made sense for a growth-stage company."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-attr">
+          <strong>Founder &amp; CEO</strong>
+          <span>B2B SaaS Company · North America</span>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"The B2B lead intelligence report opened 14 new sales conversations in 3 weeks. The prospect-level insight made our outreach genuinely different. This is the best research investment we've made."</div>
+        <div class="testi-divider"></div>
+        <div class="testi-attr">
+          <strong>Head of Sales</strong>
+          <span>Logistics SME · United Kingdom</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-l">
+        <div class="eyebrow reveal">Get In Touch</div>
+        <h2 class="reveal reveal-delay-1">Let's build your<br>intelligence edge.</h2>
+        <p class="reveal reveal-delay-2">Whether you need a one-off competitor report, a full market entry study, or an ongoing intelligence retainer — start with a 30-minute discovery call. No pitch, no pressure.</p>
+        <div class="contact-info reveal reveal-delay-3">
+          <div class="ci-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Headquarters</div>
+              <div class="ci-val">26 Broadway, Manhattan<br>New York, NY 10004, USA</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val">hello@theosanalytics.co</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <div class="ci-label">Markets</div>
+              <div class="ci-val">United Kingdom · United States<br>Canada · Europe · Global</div>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">⏱️</div>
+            <div>
+              <div class="ci-label">Response Time</div>
+              <div class="ci-val">Within 24 hours · Mon–Fri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <div class="form-title">Start Your Engagement</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Your last name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Company</label>
+            <input type="text" class="form-input" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="your@company.com">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Service of Interest</label>
+            <select class="form-select form-input">
+              <option value="" disabled selected>Select a service</option>
+              <option>Competitor Intelligence Report</option>
+              <option>Market Entry Research</option>
+              <option>Business Growth Strategy</option>
+              <option>Sales &amp; Lead Intelligence</option>
+              <option>Investor / Board Report</option>
+              <option>Advisory Retainer</option>
+              <option>Custom Scope</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Brief</label>
+            <textarea class="form-textarea" placeholder="Tell us about your business, the market you're in, and what decision this intelligence needs to support..."></textarea>
+          </div>
+          <button class="form-submit" onclick="handleSubmit(event)">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <div class="logo-mark" style="display:inline-flex;margin-bottom:12px;">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="8.5" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+              <path d="M11 5V11L15.5 14.5" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="1.8" fill="#06b6d4"/>
+            </svg>
+            &nbsp;&nbsp;<span class="logo-name" style="font-size:1.15rem;">Theos<span>Analytics</span></span>
+          </div>
+        </div>
+        <div class="footer-tagline">Business intelligence and strategic market research for growth companies who need a competitive edge — without the consulting firm overhead.</div>
+        <div class="footer-address">
+          <strong>New York Office</strong>
+          26 Broadway, Manhattan<br>
+          New York, NY 10004<br>
+          United States
+        </div>
+        <div class="footer-socials" style="margin-top:20px;">
+          <a class="social-btn" title="LinkedIn" href="#">in</a>
+          <a class="social-btn" title="Twitter/X" href="#">𝕏</a>
+          <a class="social-btn" title="Email" href="mailto:hello@theosanalytics.co">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Services</h6>
+        <ul>
+          <li><a href="#services">Competitor Intelligence</a></li>
+          <li><a href="#services">Market Entry Research</a></li>
+          <li><a href="#services">Growth Strategy</a></li>
+          <li><a href="#services">Sales Lead Intelligence</a></li>
+          <li><a href="#services">Investor Reports</a></li>
+          <li><a href="#pricing">Advisory Retainer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Company</h6>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#portfolio">Case Studies</a></li>
+          <li><a href="#companies">Our Clients</a></li>
+          <li><a href="#methodology">Our Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Markets</h6>
+        <ul>
+          <li><a href="#contact">United Kingdom</a></li>
+          <li><a href="#contact">United States</a></li>
+          <li><a href="#contact">Canada</a></li>
+          <li><a href="#contact">Europe</a></li>
+          <li><a href="#contact">India &amp; Asia</a></li>
+          <li><a href="#contact">Global Engagements</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Theos Analytics LLC · All rights reserved · Manhattan, New York</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Confidentiality</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+/* ─ Nav scroll effect ─ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+  // Active link highlighting
+  const sections = ['hero','about','services','portfolio','companies','dashboard','pricing','contact'];
+  const current = sections.find(id => {
+    const el = document.getElementById(id);
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.top <= 80 && rect.bottom > 80;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    if (current && a.getAttribute('href') === `#${current}`) a.classList.add('active');
+  });
+}, { passive: true });
+
+/* ─ Mobile menu ─ */
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+
+/* ─ Scroll reveal ─ */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ─ Portfolio filter ─ */
+function filterPB(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.pb').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.c === cat) ? '' : 'none';
+  });
+}
+
+/* ─ Hero bar chart ─ */
+const heroBarData = [
+  { h: 72, c: 'linear-gradient(to top, #2563eb, #3b82f6)' },
+  { h: 84, c: 'linear-gradient(to top, #0891b2, #06b6d4)' },
+  { h: 60, c: 'linear-gradient(to top, #d97706, #f59e0b)' },
+  { h: 78, c: 'linear-gradient(to top, #7c3aed, #8b5cf6)' },
+  { h: 55, c: 'linear-gradient(to top, #059669, #10b981)' },
+  { h: 68, c: 'linear-gradient(to top, #e11d48, #f43f5e)' },
+];
+const heroBars = document.getElementById('heroBars');
+if (heroBars) {
+  heroBarData.forEach(d => {
+    const bar = document.createElement('div');
+    bar.className = 'mb';
+    bar.style.height = d.h + '%';
+    bar.style.background = d.c;
+    bar.style.borderRadius = '2px 2px 0 0';
+    heroBars.appendChild(bar);
+  });
+}
+
+/* ─ Animated bar charts on scroll ─ */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.hbar-fill').forEach(bar => {
+        const target = bar.style.width;
+        bar.style.width = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          bar.style.transition = 'width 1.4s cubic-bezier(.4,0,.2,1)';
+          bar.style.width = target;
+        }));
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.pb-chart, .pb-donut').forEach(el => barObs.observe(el));
+
+/* ─ Form submission handler ─ */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target;
+  btn.textContent = '✓ Enquiry Sent — We\'ll be in touch within 24 hours';
+  btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+  btn.disabled = true;
+  // Reset after 5 seconds
+  setTimeout(() => {
+    btn.textContent = 'Send Enquiry →';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 5000);
+}
+
+/* ─ Smooth scroll for all internal links ─ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ─ Stacked bars animate in ─ */
+const stackObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stacked-seg').forEach((seg, i) => {
+        seg.style.opacity = '0';
+        setTimeout(() => { seg.style.transition = 'opacity .5s'; seg.style.opacity = '1'; }, i * 80);
+      });
+      stackObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stacked-wrap').forEach(el => stackObs.observe(el));
+
+/* ─ Add gradient def for radar ─ */
+const svgDefs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+const lg = document.createElementNS('http://www.w3.org/2000/svg','linearGradient');
+lg.id = 'lineGrad2'; lg.setAttribute('x1','0%'); lg.setAttribute('x2','100%');
+const s1 = document.createElementNS('http://www.w3.org/2000/svg','stop');
+s1.setAttribute('offset','0%'); s1.setAttribute('style','stop-color:#2563eb');
+const s2 = document.createElementNS('http://www.w3.org/2000/svg','stop');
+s2.setAttribute('offset','100%'); s2.setAttribute('style','stop-color:#06b6d4');
+lg.appendChild(s1); lg.appendChild(s2); svgDefs.appendChild(lg);
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
