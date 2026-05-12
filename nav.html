@@ -1,0 +1,64 @@
+<!-- ══ THEOS ANALYTICS — SHARED NAV COMPONENT ══
+     Copy this block into every page's <body> top.
+     Update BASE_URL if hosting on a subdirectory.    -->
+<nav id="nav">
+  <div class="nav-inner">
+
+    <!-- LOGO — bar/line chart SVG mark -->
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <!-- Bar + line chart icon -->
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bar chart bars -->
+          <rect x="3"  y="22" width="6" height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+          <rect x="11" y="16" width="6" height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+          <rect x="19" y="10" width="6" height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+          <rect x="27" y="18" width="6" height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+          <!-- Line chart overlay -->
+          <polyline points="6,20 14,13 22,7 30,15"
+            stroke="#06b6d4" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round"
+            fill="none"/>
+          <!-- Dots on line -->
+          <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+          <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+          <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+          <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+        </svg>
+      </div>
+      <div class="logo-name">Theos<span>Analytics</span></div>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Case Studies</a></li>
+      <li><a href="index.html#companies">Clients</a></li>
+      <li><a href="intelligence.html">Intelligence</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="nav-contact mono">hello@theosanalytics.co</span>
+      <a href="contact.html" class="nav-cta">Engage Us →</a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about"   onclick="toggleMenu()">About</a>
+  <a href="services.html"      onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html"     onclick="toggleMenu()">Case Studies</a>
+  <a href="index.html#companies" onclick="toggleMenu()">Clients</a>
+  <a href="intelligence.html"  onclick="toggleMenu()">Intelligence</a>
+  <a href="team.html"          onclick="toggleMenu()">Our Team</a>
+  <a href="index.html#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html"       onclick="toggleMenu()">Contact</a>
+</div>

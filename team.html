@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meet the Theos Analytics team — 6 years of business intelligence, market research and strategic consulting success.">
+<title>Our Team | Theos Analytics</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+/* ── TEAM PAGE SPECIFIC ── */
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; }
+.team-card {
+  background:var(--surface); border:1px solid var(--rule); border-radius:16px;
+  overflow:hidden; transition:all .3s; position:relative;
+}
+.team-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,.1); border-color:rgba(37,99,235,.2); }
+.team-card-top {
+  height:200px; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.team-avatar {
+  width:100px; height:100px; border-radius:50%;
+  border:4px solid rgba(255,255,255,.2);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:white;
+  position:relative; z-index:1; box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+.team-card-body { padding:24px; }
+.team-name { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.team-role { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--electric); margin-bottom:12px; }
+.team-bio { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:16px; }
+.team-skills { display:flex; flex-wrap:wrap; gap:6px; }
+.t-skill { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.06em; padding:3px 10px; border-radius:999px; border:1px solid var(--rule); color:var(--muted); }
+.team-social { display:flex; gap:8px; margin-top:16px; padding-top:16px; border-top:1px solid var(--rule); }
+.ts-btn { width:30px; height:30px; border-radius:6px; background:var(--bg); border:1px solid var(--rule); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--muted); transition:all .2s; cursor:pointer; }
+.ts-btn:hover { background:var(--electric-lt); color:var(--electric); border-color:var(--electric-lt); }
+
+/* Timeline */
+.timeline { position:relative; padding:0; }
+.timeline::before {
+  content:''; position:absolute; left:50%; top:0; bottom:0; width:2px;
+  background:linear-gradient(to bottom, var(--electric), var(--teal));
+  transform:translateX(-50%);
+}
+.tl-item { display:grid; grid-template-columns:1fr 60px 1fr; gap:0; margin-bottom:60px; align-items:start; }
+.tl-item:nth-child(even) .tl-left { order:3; }
+.tl-item:nth-child(even) .tl-center { order:2; }
+.tl-item:nth-child(even) .tl-right { order:1; text-align:right; }
+.tl-item:nth-child(even) .tl-right .tl-card { margin-left:auto; margin-right:0; }
+.tl-center { display:flex; flex-direction:column; align-items:center; gap:8px; padding-top:20px; }
+.tl-year {
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,var(--electric),var(--teal));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Syne',sans-serif; font-size:11px; font-weight:800; color:white;
+  box-shadow:0 4px 16px rgba(37,99,235,.4); flex-shrink:0;
+}
+.tl-card {
+  background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:20px 22px; max-width:380px; transition:all .3s;
+}
+.tl-card:hover { box-shadow:0 8px 32px rgba(0,0,0,.08); border-color:rgba(37,99,235,.2); }
+.tl-card-year { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--electric); margin-bottom:8px; }
+.tl-card-title { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.tl-card-desc { font-size:12.5px; color:var(--muted); line-height:1.65; }
+.tl-metrics { display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+.tl-metric { text-align:center; }
+.tl-metric-num { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:800; color:var(--navy); line-height:1; }
+.tl-metric-lbl { font-size:9.5px; color:var(--muted); margin-top:2px; }
+
+/* Values */
+.values-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:52px; }
+.value-card { background:var(--navy); border-radius:12px; padding:28px 24px; text-align:center; transition:transform .3s; }
+.value-card:hover { transform:translateY(-4px); }
+.value-icon { font-size:28px; display:block; margin-bottom:14px; }
+.value-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:white; margin-bottom:8px; }
+.value-desc { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.65; }
+
+/* Stats band */
+.stats-band { background:linear-gradient(135deg,var(--electric),var(--teal),var(--violet)); padding:72px 0; }
+.stats-band-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(255,255,255,.2); }
+.sb-cell { background:transparent; padding:36px 20px; text-align:center; }
+.sb-num { font-family:'Syne',sans-serif; font-size:2.8rem; font-weight:800; color:white; line-height:1; letter-spacing:-.03em; }
+.sb-lbl { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:8px; }
+
+/* Gradient bgs for team cards */
+.bg-g1 { background:linear-gradient(135deg,#0a1628 0%,#2563eb 100%); }
+.bg-g2 { background:linear-gradient(135deg,#0a1628 0%,#0891b2 100%); }
+.bg-g3 { background:linear-gradient(135deg,#0a1628 0%,#7c3aed 100%); }
+.bg-g4 { background:linear-gradient(135deg,#0a1628 0%,#d97706 100%); }
+.bg-g5 { background:linear-gradient(135deg,#0a1628 0%,#059669 100%); }
+.bg-g6 { background:linear-gradient(135deg,#0a1628 0%,#e11d48 100%); }
+
+/* CTA section */
+.team-cta { background:var(--navy); padding:100px 0; text-align:center; position:relative; overflow:hidden; }
+.team-cta::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(37,99,235,.2) 0%, transparent 70%);
+}
+
+@media(max-width:960px) {
+  .team-grid { grid-template-columns:1fr 1fr; }
+  .timeline::before { left:24px; }
+  .tl-item { grid-template-columns:48px 1fr; gap:0; }
+  .tl-item .tl-right, .tl-item:nth-child(even) .tl-right { display:none; }
+  .tl-item:nth-child(even) .tl-left { order:1; }
+  .tl-item:nth-child(even) .tl-center { order:0; }
+  .tl-center { padding-top:16px; }
+  .tl-card { max-width:100%; }
+  .values-grid { grid-template-columns:1fr 1fr; }
+  .stats-band-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:640px) {
+  .team-grid { grid-template-columns:1fr; }
+  .values-grid { grid-template-columns:1fr; }
+  .stats-band-grid { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="light-nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+          <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+          <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+          <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+          <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+          <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+          <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+          <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+        </svg>
+      </div>
+      <div class="logo-name">Theos<span>Analytics</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Case Studies</a></li>
+      <li><a href="index.html#companies">Clients</a></li>
+      <li><a href="intelligence.html">Intelligence</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-contact mono">hello@theosanalytics.co</span>
+      <a href="contact.html" class="nav-cta">Engage Us →</a>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="toggleMenu()">About</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Case Studies</a>
+  <a href="index.html#companies" onclick="toggleMenu()">Clients</a>
+  <a href="intelligence.html" onclick="toggleMenu()">Intelligence</a>
+  <a href="team.html" onclick="toggleMenu()">Our Team</a>
+  <a href="index.html#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb reveal">
+      <a href="index.html">Home</a><span>/</span><span>Our Team</span>
+    </div>
+    <div class="eyebrow light reveal">The People Behind the Intelligence</div>
+    <h1 class="reveal d1">Six years of research.<br>Results that speak<br><span style="background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">for themselves.</span></h1>
+    <p class="reveal d2">Theos Analytics was founded in 2020 with a single mission: deliver executive-grade strategic intelligence to the businesses that need it most, at a price that makes sense. Since then, we've grown into a globally distributed team of analysts, strategists, and intelligence specialists — having worked across 14 global brands, 9 countries, and 6 industry sectors.</p>
+    <div style="display:flex;gap:12px;margin-top:32px;" class="reveal d3">
+      <a href="contact.html" class="btn btn-primary">Work With Us</a>
+      <a href="#timeline" class="btn btn-outline-white">Our Journey →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-band-grid">
+      <div class="sb-cell reveal"><div class="sb-num">6</div><div class="sb-lbl">Years in Operation</div></div>
+      <div class="sb-cell reveal d1"><div class="sb-num">14+</div><div class="sb-lbl">Global Brands Studied</div></div>
+      <div class="sb-cell reveal d2"><div class="sb-num">$2.4M</div><div class="sb-lbl">Client Revenue Influenced</div></div>
+      <div class="sb-cell reveal d3"><div class="sb-num">9</div><div class="sb-lbl">Countries Covered</div></div>
+      <div class="sb-cell reveal d4"><div class="sb-num">100%</div><div class="sb-lbl">On-Time Delivery Rate</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item">Gore-Tex</div><div class="marquee-item">ASOS</div>
+    <div class="marquee-item">Unilever</div><div class="marquee-item">Procter &amp; Gamble</div>
+    <div class="marquee-item">Godrej Group</div><div class="marquee-item">VividPay</div>
+    <div class="marquee-item">Kreditz</div><div class="marquee-item">Sainsbury's</div>
+    <div class="marquee-item">Currys PLC</div><div class="marquee-item">Uniqlo</div>
+    <div class="marquee-item">Compass Group</div><div class="marquee-item">BestRiskControl</div>
+    <!-- duplicate for loop -->
+    <div class="marquee-item">Gore-Tex</div><div class="marquee-item">ASOS</div>
+    <div class="marquee-item">Unilever</div><div class="marquee-item">Procter &amp; Gamble</div>
+    <div class="marquee-item">Godrej Group</div><div class="marquee-item">VividPay</div>
+    <div class="marquee-item">Kreditz</div><div class="marquee-item">Sainsbury's</div>
+    <div class="marquee-item">Currys PLC</div><div class="marquee-item">Uniqlo</div>
+    <div class="marquee-item">Compass Group</div><div class="marquee-item">BestRiskControl</div>
+  </div>
+</div>
+
+<!-- TEAM MEMBERS -->
+<section id="team" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="eyebrow reveal">The Team</div>
+    <h2 class="reveal d1">The analysts, strategists<br>and intelligence specialists.</h2>
+    <p class="reveal d2" style="color:var(--muted);max-width:520px;margin-top:12px;">Every engagement is led by a senior analyst. We don't outsource, we don't use generic templates — every insight is researched, structured, and verified by a named member of our team.</p>
+
+    <div class="team-grid">
+
+      <!-- 1 -->
+      <div class="team-card reveal tilt-card">
+        <div class="team-card-top bg-g1">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">BL</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">Business Lead</div>
+          <div class="team-role">Founder & Lead Strategist</div>
+          <div class="team-bio">Founded Theos Analytics in 2020 with a vision to make executive-grade business intelligence accessible to growth companies. Leads all senior engagements, client strategy, and firm positioning. Has personally directed intelligence work across ASOS, Unilever, P&G, Godrej, Gore-Tex, and 8+ other global brands over 6 years.</div>
+          <div class="team-skills">
+            <span class="t-skill">Strategic Intelligence</span>
+            <span class="t-skill">FMCG</span>
+            <span class="t-skill">Market Entry</span>
+            <span class="t-skill">Porter's 5 Forces</span>
+            <span class="t-skill">Ansoff Matrix</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="mailto:hello@theosanalytics.co" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="team-card reveal d1 tilt-card">
+        <div class="team-card-top bg-g2">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">SR</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">Sarah Reeves</div>
+          <div class="team-role">Head of Market Research</div>
+          <div class="team-bio">5 years with Theos Analytics specialising in competitive benchmarking and FMCG sector intelligence. Previously a market analyst for a Big 4 consultancy. Has led research across Sainsbury's vs. Tesco, Unilever vs. P&G, and multiple SME market entry studies across the UK and Canada.</div>
+          <div class="team-skills">
+            <span class="t-skill">SWOT / PESTLE</span>
+            <span class="t-skill">FMCG Research</span>
+            <span class="t-skill">Consumer Behaviour</span>
+            <span class="t-skill">UK Retail</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="#" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="team-card reveal d2 tilt-card">
+        <div class="team-card-top bg-g3">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">JA</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">James Adeyemi</div>
+          <div class="team-role">Digital Strategy Analyst</div>
+          <div class="team-bio">Digital commerce and e-commerce intelligence specialist. Led the ASOS and Currys digital strategy audits, with particular expertise in RACE framework, omnichannel benchmarking, and digital transformation analysis for UK and US retail brands.</div>
+          <div class="team-skills">
+            <span class="t-skill">RACE Framework</span>
+            <span class="t-skill">E-Commerce</span>
+            <span class="t-skill">Digital Audit</span>
+            <span class="t-skill">SEMrush / SimilarWeb</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="#" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="team-card reveal tilt-card">
+        <div class="team-card-top bg-g4">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 80%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">MP</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">Maya Patel</div>
+          <div class="team-role">Sales Intelligence Lead</div>
+          <div class="team-bio">Leads all B2B lead research, prospect profiling, and sales intelligence engagements. Expert in Apollo.io, LinkedIn Sales Navigator, and Clay workflows. Has built over 40 targeted B2B lead databases for clients across logistics, SaaS, and recruitment sectors.</div>
+          <div class="team-skills">
+            <span class="t-skill">B2B Lead Research</span>
+            <span class="t-skill">Apollo.io</span>
+            <span class="t-skill">Prospect Profiling</span>
+            <span class="t-skill">LinkedIn Sales Nav</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="#" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="team-card reveal d1 tilt-card">
+        <div class="team-card-top bg-g5">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">TK</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">Thomas Kofi</div>
+          <div class="team-role">Fintech & International Markets</div>
+          <div class="team-bio">Specialist in fintech competitive intelligence and international market expansion research. Led the VividPay vs. Wise/Revolut analysis and Kreditz EU regulatory mapping. Also authored Godrej's East Africa and Southeast Asia expansion feasibility studies.</div>
+          <div class="team-skills">
+            <span class="t-skill">Fintech</span>
+            <span class="t-skill">Regulatory Mapping</span>
+            <span class="t-skill">Market Feasibility</span>
+            <span class="t-skill">Africa / SE Asia</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="#" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="team-card reveal d2 tilt-card">
+        <div class="team-card-top bg-g6">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(255,255,255,.1),transparent 60%);"></div>
+          <div class="team-avatar">LC</div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-name">Laura Chen</div>
+          <div class="team-role">Data Visualisation & Dashboards</div>
+          <div class="team-bio">Transforms raw intelligence into board-ready visual reports, Excel dashboards, and investor decks. Expert in Power BI, Tableau, and advanced Excel modelling. Ensures every Theos Analytics deliverable meets executive presentation standards.</div>
+          <div class="team-skills">
+            <span class="t-skill">Power BI</span>
+            <span class="t-skill">Excel Dashboards</span>
+            <span class="t-skill">Tableau</span>
+            <span class="t-skill">Investor Decks</span>
+          </div>
+          <div class="team-social">
+            <a class="ts-btn" href="#" title="LinkedIn">in</a>
+            <a class="ts-btn" href="#" title="Email">✉</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /team-grid -->
+  </div>
+</section>
+
+<!-- 6-YEAR TIMELINE -->
+<section id="timeline" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our Journey</div>
+    <h2 class="reveal d1">6 years of intelligence,<br>growth, and results.</h2>
+    <p class="reveal d2" style="color:var(--muted);max-width:520px;margin-top:12px;margin-bottom:72px;">From a one-person research practice to a globally distributed intelligence firm — here's how Theos Analytics was built.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-left"></div>
+        <div class="tl-center">
+          <div class="tl-year">2020</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <div class="tl-card-year">2020 · Year One</div>
+            <div class="tl-card-title">Founded — The Research Practice Begins</div>
+            <div class="tl-card-desc">Theos Analytics launches as a solo business intelligence practice, delivering structured competitor analysis and market research reports for UK SMEs. First clients in retail and e-commerce. The foundation: academic-grade research turned into commercial-grade insight.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">3</div><div class="tl-metric-lbl">First clients</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">1</div><div class="tl-metric-lbl">Analyst</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">UK</div><div class="tl-metric-lbl">Market focus</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-card" style="margin-left:auto;margin-right:0;">
+            <div class="tl-card-year">2021 · Year Two</div>
+            <div class="tl-card-title">First Major Brand Engagements</div>
+            <div class="tl-card-desc">Delivered the first enterprise-grade intelligence reports — ASOS digital strategy audit and the Sainsbury's vs. Tesco competitive benchmarking study. These two engagements established the firm's reputation for executive-depth research. Team expanded to 3 analysts.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">2</div><div class="tl-metric-lbl">Major brands</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">3</div><div class="tl-metric-lbl">Team size</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">42pp</div><div class="tl-metric-lbl">Flagship report</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-center"><div class="tl-year">2021</div></div>
+        <div class="tl-right"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-year">2022</div></div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <div class="tl-card-year">2022 · Year Three</div>
+            <div class="tl-card-title">FMCG Specialisation & Global Expansion</div>
+            <div class="tl-card-desc">Entered the FMCG intelligence market with in-depth studies on Unilever, Procter & Gamble, Godrej Group, and Gore-Tex. First international engagements — India, Sweden, and North America. Sales intelligence service line launched with B2B lead research capabilities.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">6</div><div class="tl-metric-lbl">Global brands</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">4</div><div class="tl-metric-lbl">Countries</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">5</div><div class="tl-metric-lbl">Team size</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-card" style="margin-left:auto;margin-right:0;">
+            <div class="tl-card-year">2023 · Year Four</div>
+            <div class="tl-card-title">Fintech Intelligence & Sales Analytics</div>
+            <div class="tl-card-desc">Launched fintech intelligence practice — VividPay, Kreditz, and open-banking regulatory mapping across EU markets. Developed the Sales & Trend Analytics service line inspired by the theoanalytics.app model: automated intelligence delivery and real-time business metrics for growth companies.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">12+</div><div class="tl-metric-lbl">Engagements</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">EU</div><div class="tl-metric-lbl">New market</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">6</div><div class="tl-metric-lbl">Team size</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-center"><div class="tl-year">2023</div></div>
+        <div class="tl-right"></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-year">2024</div></div>
+        <div class="tl-right">
+          <div class="tl-card">
+            <div class="tl-card-year">2024 · Year Five</div>
+            <div class="tl-card-title">Manhattan HQ & North American Growth</div>
+            <div class="tl-card-desc">Established the New York headquarters at 26 Broadway, Manhattan, anchoring Theos Analytics in the North American market. Expanded retainer client base across US SaaS, private equity, and healthcare sectors. Launched the Advisory Retainer programme — ongoing intelligence for recurring clients.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">NY</div><div class="tl-metric-lbl">HQ established</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">9</div><div class="tl-metric-lbl">Countries</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">$1M+</div><div class="tl-metric-lbl">Revenue influenced</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-card" style="margin-left:auto;margin-right:0;border-color:rgba(37,99,235,.3);background:linear-gradient(135deg,#f0f6ff,#fff);">
+            <div class="tl-card-year">2025–2026 · Year Six</div>
+            <div class="tl-card-title">Full-Service Intelligence Firm 🚀</div>
+            <div class="tl-card-desc">14+ global brands. 9 countries. 40+ strategic frameworks. 6 service lines. $2.4M+ in client revenue influenced. The firm that started as a solo research practice now operates as a full-service strategic intelligence consultancy — serving SMEs, growth companies, and enterprise clients across 3 continents. And we're just getting started.</div>
+            <div class="tl-metrics">
+              <div class="tl-metric"><div class="tl-metric-num">14+</div><div class="tl-metric-lbl">Global brands</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">$2.4M</div><div class="tl-metric-lbl">Revenue influenced</div></div>
+              <div class="tl-metric"><div class="tl-metric-num">6</div><div class="tl-metric-lbl">Service lines</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-center"><div class="tl-year" style="background:linear-gradient(135deg,#d97706,#f59e0b);box-shadow:0 4px 16px rgba(217,119,6,.4);">2026</div></div>
+        <div class="tl-right"></div>
+      </div>
+
+    </div><!-- /timeline -->
+  </div>
+</section>
+
+<!-- VALUES -->
+<section style="background:var(--navy);">
+  <div class="wrap">
+    <div class="eyebrow light reveal">What Drives Us</div>
+    <h2 class="reveal d1" style="color:white;">Our values are<br>our competitive edge.</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <span class="value-icon">🔬</span>
+        <div class="value-title">Evidence First</div>
+        <div class="value-desc">Every claim is sourced. Every recommendation is backed by data. We never deliver an opinion dressed as intelligence.</div>
+      </div>
+      <div class="value-card reveal d1">
+        <span class="value-icon">⚡</span>
+        <div class="value-title">Speed Without Shortcuts</div>
+        <div class="value-desc">10-day turnaround because we've built systems that work. Fast doesn't mean shallow — we just don't waste time on bureaucracy.</div>
+      </div>
+      <div class="value-card reveal d2">
+        <span class="value-icon">🎯</span>
+        <div class="value-title">Decision-Ready Output</div>
+        <div class="value-desc">We don't deliver data dumps. Every report ends with ranked, actionable recommendations your team can implement immediately.</div>
+      </div>
+      <div class="value-card reveal d3">
+        <span class="value-icon">🔒</span>
+        <div class="value-title">Total Confidentiality</div>
+        <div class="value-desc">We never share client data. Every engagement is covered by strict confidentiality. Your intelligence is yours alone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="team-cta">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="eyebrow light reveal" style="justify-content:center;">Work With the Team</div>
+    <h2 class="reveal d1" style="color:white;text-align:center;margin-bottom:20px;">Ready to work with<br>a team that delivers?</h2>
+    <p class="reveal d2" style="color:rgba(255,255,255,.5);text-align:center;max-width:480px;margin:0 auto 36px;">Start with a 30-minute discovery call. We'll map your competitive landscape and tell you exactly what intelligence will move the needle for your business.</p>
+    <div class="reveal d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Book Discovery Call</a>
+      <a href="portfolio.html" class="btn btn-outline-white">View Our Work</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="index.html" style="display:inline-flex;margin-bottom:4px;">
+          <div class="logo-mark">
+            <svg viewBox="0 0 36 36" fill="none">
+              <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+              <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+              <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+              <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+              <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+              <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+              <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+              <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+            </svg>
+          </div>
+          <span class="logo-name" style="margin-left:10px;">Theos<span>Analytics</span></span>
+        </a>
+        <div class="footer-tagline">Business intelligence and strategic market research for growth companies who need a competitive edge — without the consulting firm overhead.</div>
+        <div class="footer-address"><strong>New York HQ</strong>26 Broadway, Manhattan<br>New York, NY 10004, USA</div>
+        <div class="footer-socials">
+          <a class="social-btn" href="#">in</a>
+          <a class="social-btn" href="#">𝕏</a>
+          <a class="social-btn" href="mailto:hello@theosanalytics.co">✉</a>
+        </div>
+      </div>
+      <div class="footer-col"><h6>Services</h6><ul>
+        <li><a href="services.html">Competitor Intelligence</a></li>
+        <li><a href="services.html">Market Research</a></li>
+        <li><a href="services.html">Growth Strategy</a></li>
+        <li><a href="services.html">Sales Analytics</a></li>
+        <li><a href="services.html">Investor Reports</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Company</h6><ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="portfolio.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Contact</h6><ul>
+        <li><a href="mailto:hello@theosanalytics.co">hello@theosanalytics.co</a></li>
+        <li><a href="#">LinkedIn Profile</a></li>
+        <li><a href="#">Upwork Profile</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Theos Analytics LLC · All rights reserved · Manhattan, New York</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Confidentiality</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="css/shared.css" type="text/css"></script>
+<script>
+'use strict';
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { if(nav) nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+function toggleMenu(){const m=document.getElementById('mobileMenu');const h=document.querySelector('.hamburger');if(!m)return;const o=m.classList.toggle('open');document.body.style.overflow=o?'hidden':'';if(h){const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';}); }}}
+document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu');if(m?.classList.contains('open')&&!e.target.closest('#mobileMenu,#nav'))toggleMenu();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});});});
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+if(window.innerWidth>1024){document.querySelectorAll('.tilt-card').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-4px)`;});card.addEventListener('mouseleave',()=>{card.style.transform='';});});}
+</script>
+</body>
+</html>

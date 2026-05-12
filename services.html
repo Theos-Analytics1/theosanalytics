@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Theos Analytics Services — Competitor Intelligence, Market Research, Growth Strategy, Sales Analytics, Lead Intelligence, Investor Reports.">
+<title>Services | Theos Analytics</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+/* ── SERVICES PAGE ── */
+.services-hero-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; }
+.shc {
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:22px 20px; transition:all .3s; cursor:default;
+}
+.shc:hover { background:rgba(255,255,255,.09); border-color:rgba(37,99,235,.4); transform:translateY(-2px); }
+.shc-icon { font-size:24px; margin-bottom:12px; display:block; }
+.shc-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:white; margin-bottom:6px; }
+.shc-desc { font-size:12px; color:rgba(255,255,255,.4); line-height:1.6; }
+.shc-price { font-family:'DM Mono',monospace; font-size:10px; color:var(--teal2); margin-top:10px; letter-spacing:.06em; }
+
+/* Service detail sections */
+.svc-section { padding:100px 0; border-bottom:1px solid var(--rule); }
+.svc-section:last-of-type { border-bottom:none; }
+.svc-section:nth-child(even) { background:var(--surface); }
+.svc-section:nth-child(odd) { background:var(--bg); }
+.svc-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.svc-layout.flip { direction:rtl; }
+.svc-layout.flip > * { direction:ltr; }
+.svc-tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--electric); margin-bottom:14px; display:block; }
+.svc-title { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--navy); margin-bottom:16px; line-height:1.1; }
+.svc-desc { font-size:14px; color:var(--muted); line-height:1.85; margin-bottom:24px; }
+.svc-features { list-style:none; margin-bottom:28px; }
+.svc-features li { font-size:13.5px; color:var(--ink2); padding:8px 0; border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:10px; }
+.svc-features li::before { content:'→'; color:var(--electric); font-size:10px; flex-shrink:0; font-family:'DM Mono',monospace; }
+.svc-price-tag { display:inline-flex; align-items:center; gap:8px; background:var(--electric-lt); border:1px solid rgba(37,99,235,.2); border-radius:999px; padding:7px 18px; font-family:'DM Mono',monospace; font-size:11px; color:var(--electric); letter-spacing:.06em; margin-bottom:22px; }
+.svc-cta { display:inline-flex; align-items:center; gap:8px; }
+
+/* Visual cards */
+.svc-visual { position:relative; }
+.svc-card-main {
+  background:var(--surface); border:1px solid var(--rule); border-radius:16px;
+  padding:28px; box-shadow:0 8px 40px rgba(0,0,0,.08);
+}
+.svc-card-float {
+  position:absolute; background:white; border:1px solid var(--rule);
+  border-radius:12px; padding:14px 18px; box-shadow:0 8px 28px rgba(0,0,0,.12);
+  font-size:12.5px;
+}
+.svc-card-float.top-right { top:-18px; right:-20px; }
+.svc-card-float.bot-left  { bottom:-18px; left:-20px; }
+.float-num { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; color:var(--navy); line-height:1; }
+.float-lbl { font-size:10px; color:var(--muted); margin-top:2px; font-family:'DM Mono',monospace; letter-spacing:.06em; }
+
+/* Bar chart visual */
+.vis-bars { display:flex; align-items:flex-end; gap:8px; height:120px; }
+.vis-bar { flex:1; border-radius:4px 4px 0 0; position:relative; min-width:0; }
+.vis-bar-lbl { position:absolute; bottom:-18px; left:50%; transform:translateX(-50%); font-size:8.5px; font-family:'DM Mono',monospace; color:var(--muted); white-space:nowrap; }
+.vis-bar-val { position:absolute; top:-18px; left:50%; transform:translateX(-50%); font-size:9px; font-family:'DM Mono',monospace; color:var(--navy); font-weight:500; }
+
+/* Line chart visual */
+.vis-line-wrap { padding:8px 0; }
+.vis-line-label { font-family:'DM Mono',monospace; font-size:8.5px; color:var(--faint); letter-spacing:.12em; text-transform:uppercase; margin-bottom:10px; }
+
+/* Feature chip grid */
+.feat-chips { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; }
+.feat-chip { background:var(--bg); border:1px solid var(--rule); border-radius:8px; padding:12px 14px; display:flex; align-items:flex-start; gap:10px; }
+.feat-chip-icon { font-size:16px; flex-shrink:0; margin-top:1px; }
+.feat-chip-title { font-family:'Syne',sans-serif; font-size:12.5px; font-weight:700; color:var(--navy); margin-bottom:2px; }
+.feat-chip-desc { font-size:11px; color:var(--muted); line-height:1.5; }
+
+/* Automation pipeline visual */
+.pipeline { display:flex; flex-direction:column; gap:8px; }
+.pipe-step { display:flex; align-items:center; gap:12px; background:var(--bg); border:1px solid var(--rule); border-radius:8px; padding:12px 16px; }
+.pipe-step-icon { width:34px; height:34px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+.pipe-step-title { font-size:12.5px; font-weight:600; color:var(--navy); font-family:'Syne',sans-serif; }
+.pipe-step-sub { font-size:11px; color:var(--muted); }
+.pipe-arrow { text-align:center; color:var(--electric); font-size:14px; line-height:1; }
+
+/* Zero retention badge */
+.zero-badge { background:linear-gradient(135deg,var(--emerald),#10b981); border-radius:10px; padding:18px 20px; display:flex; align-items:center; gap:14px; margin-top:16px; }
+.zero-badge-icon { font-size:24px; }
+.zero-badge-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:white; margin-bottom:2px; }
+.zero-badge-desc { font-size:11.5px; color:rgba(255,255,255,.75); line-height:1.4; }
+
+/* Compare table */
+.compare-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:12.5px; }
+.compare-table th { background:var(--navy); color:white; padding:10px 14px; text-align:left; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; }
+.compare-table td { padding:9px 14px; border-bottom:1px solid var(--rule); color:var(--muted); }
+.compare-table td:first-child { color:var(--ink); font-weight:500; }
+.compare-table .check { color:var(--emerald); font-weight:700; }
+.compare-table .cross { color:var(--faint); }
+.compare-table tr:hover td { background:var(--bg); }
+
+/* CTA strip */
+.cta-strip { background:linear-gradient(135deg,var(--navy),#162952); padding:80px 0; text-align:center; }
+.cta-strip h2 { color:white; margin-bottom:16px; }
+.cta-strip p { color:rgba(255,255,255,.5); max-width:480px; margin:0 auto 36px; font-size:1rem; line-height:1.75; }
+
+@media(max-width:960px) {
+  .services-hero-grid { grid-template-columns:1fr 1fr; }
+  .svc-layout, .svc-layout.flip { grid-template-columns:1fr; direction:ltr; gap:40px; }
+  .feat-chips { grid-template-columns:1fr; }
+  .svc-card-float { display:none; }
+}
+@media(max-width:600px) {
+  .services-hero-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="light-nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+          <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+          <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+          <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+          <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+          <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+          <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+          <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+        </svg>
+      </div>
+      <div class="logo-name">Theos<span>Analytics</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Case Studies</a></li>
+      <li><a href="index.html#companies">Clients</a></li>
+      <li><a href="intelligence.html">Intelligence</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-contact mono">hello@theosanalytics.co</span>
+      <a href="contact.html" class="nav-cta">Engage Us →</a>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="toggleMenu()">About</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Case Studies</a>
+  <a href="team.html" onclick="toggleMenu()">Team</a>
+  <a href="index.html#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+    <div class="eyebrow light reveal">What We Deliver</div>
+    <h1 class="reveal d1">Six intelligence<br>service lines.<br><span style="background:linear-gradient(135deg,#3b82f6,#06b6d4,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">One firm.</span></h1>
+    <p class="reveal d2">From competitor benchmarking to automated sales trend analytics — every service is designed to replace guesswork with structured, evidence-based intelligence your team can act on immediately.</p>
+    <div class="services-hero-grid reveal d3">
+      <div class="shc" onclick="location.href='#competitive'">
+        <span class="shc-icon">🔬</span>
+        <div class="shc-title">Competitor Intelligence</div>
+        <div class="shc-desc">Who's winning in your market, how, and where the gaps are.</div>
+        <div class="shc-price">From $150 per report</div>
+      </div>
+      <div class="shc" onclick="location.href='#market'">
+        <span class="shc-icon">🌐</span>
+        <div class="shc-title">Market Entry Research</div>
+        <div class="shc-desc">Feasibility, opportunity sizing, and regulatory landscape for new markets.</div>
+        <div class="shc-price">From $500 per study</div>
+      </div>
+      <div class="shc" onclick="location.href='#growth'">
+        <span class="shc-icon">📈</span>
+        <div class="shc-title">Business Growth Strategy</div>
+        <div class="shc-desc">Revenue levers, expansion pathways, and strategic recommendations.</div>
+        <div class="shc-price">From $750 per engagement</div>
+      </div>
+      <div class="shc" onclick="location.href='#analytics'">
+        <span class="shc-icon">⚡</span>
+        <div class="shc-title">Sales & Trend Analytics</div>
+        <div class="shc-desc">Automated sales tracking, live projections, and inbox delivery.</div>
+        <div class="shc-price">From $300/month</div>
+      </div>
+      <div class="shc" onclick="location.href='#sales'">
+        <span class="shc-icon">🎯</span>
+        <div class="shc-title">Sales Lead Intelligence</div>
+        <div class="shc-desc">B2B lead databases with decision-maker profiles and pain point mapping.</div>
+        <div class="shc-price">From $400 per database</div>
+      </div>
+      <div class="shc" onclick="location.href='#investor'">
+        <span class="shc-icon">📋</span>
+        <div class="shc-title">Investor & Board Reports</div>
+        <div class="shc-desc">Feasibility studies, investor briefs, and due diligence support.</div>
+        <div class="shc-price">From $1,000 per report</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 01 — COMPETITOR INTEL
+══════════════════════════ -->
+<div class="svc-section" id="competitive">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="reveal">
+        <span class="svc-tag">Service 01 · Competitor Intelligence</span>
+        <div class="svc-price-tag">From $150 · 3–5 day turnaround</div>
+        <h2 class="svc-title">Know exactly where<br>your competitors are winning.</h2>
+        <p class="svc-desc">Most businesses know their competitors exist. Few know precisely how they're gaining market share, which customer segments they're targeting, what their pricing strategy actually is, or where their vulnerabilities lie. Theos Analytics changes that.</p>
+        <p class="svc-desc">We go beyond surface-level Google research — pulling annual reports, SimilarWeb traffic data, SEMrush keyword intelligence, pricing audits, LinkedIn positioning analysis, and consumer sentiment — synthesised into a structured report that tells you exactly what to do next.</p>
+        <ul class="svc-features">
+          <li>Deep-dive on 3–10 direct competitors across positioning, pricing, digital, product, and customer acquisition</li>
+          <li>SWOT, Porter's 5 Forces, and competitive threat scoring matrix</li>
+          <li>Market share analysis with trajectory data</li>
+          <li>Competitor vulnerability mapping — where they're weak, where you can win</li>
+          <li>Strategic counter-move recommendations, ranked by expected impact</li>
+        </ul>
+        <div class="svc-cta">
+          <a href="contact.html" class="btn btn-primary">Order This Report</a>
+          <a href="portfolio.html" class="btn btn-ghost-blue" style="margin-left:10px;">See Examples</a>
+        </div>
+      </div>
+      <div class="svc-visual reveal d2">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-bottom:16px;">Competitive Threat Index — Sample Output</div>
+          <div class="vis-bars" id="compBars">
+            <!-- JS rendered -->
+          </div>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--rule);">
+              <span>Competitor A</span><span style="color:var(--rose);font-weight:600;">HIGH THREAT</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--rule);">
+              <span>Competitor B</span><span style="color:var(--gold);font-weight:600;">MEDIUM</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:8px 0;">
+              <span>Competitor C</span><span style="color:var(--emerald);font-weight:600;">LOW THREAT</span>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card-float top-right">
+          <div class="float-num">5</div>
+          <div class="float-lbl">Frameworks Applied</div>
+        </div>
+        <div class="svc-card-float bot-left">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:16px;">✓</span>
+            <div><div class="float-num" style="font-size:1rem;">Board-Ready</div><div class="float-lbl">Executive PDF Output</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 02 — SALES & TREND ANALYTICS
+   (theoanalytics.app inspired)
+══════════════════════════ -->
+<div class="svc-section" id="analytics">
+  <div class="wrap">
+    <div class="svc-layout flip">
+      <div class="svc-visual reveal">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-bottom:14px;">Live Sales Intelligence — Sample Dashboard</div>
+          <!-- Mini live dashboard -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg);border-radius:8px;padding:12px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);">$24.6K</div>
+              <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Today's Revenue</div>
+              <div style="font-size:11px;color:var(--emerald);margin-top:2px;">↑ 18% vs yesterday</div>
+            </div>
+            <div style="background:var(--bg);border-radius:8px;padding:12px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);">312</div>
+              <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Orders Today</div>
+              <div style="font-size:11px;color:var(--emerald);margin-top:2px;">↑ 24 vs last week</div>
+            </div>
+            <div style="background:var(--bg);border-radius:8px;padding:12px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);">$41.2K</div>
+              <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">EOD Projection</div>
+              <div style="font-size:11px;color:var(--electric);margin-top:2px;">On track ✓</div>
+            </div>
+          </div>
+          <!-- Hourly chart -->
+          <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">Hourly Sales — Today</div>
+          <svg viewBox="0 0 320 80" style="width:100%;height:80px;">
+            <defs>
+              <linearGradient id="salesGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:.25"/>
+                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,70 C20,65 40,60 60,55 C80,50 100,45 120,38 C140,31 160,42 180,35 C200,28 220,20 240,22 C260,24 280,18 320,12 L320,80 L0,80 Z" fill="url(#salesGrad)"/>
+            <path d="M0,70 C20,65 40,60 60,55 C80,50 100,45 120,38 C140,31 160,42 180,35 C200,28 220,20 240,22 C260,24 280,18 320,12" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="zero-badge" style="margin-top:14px;">
+            <span class="zero-badge-icon">🔒</span>
+            <div>
+              <div class="zero-badge-title">Zero Data Retention — Guaranteed</div>
+              <div class="zero-badge-desc">We process your data in memory. Nothing is stored on our servers. Total privacy, every time.</div>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card-float top-right">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#2ecc71;display:inline-block;animation:pulse 2s infinite;"></span>
+            <div><div class="float-num" style="font-size:.95rem;">Live</div><div class="float-lbl">Real-time tracking</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d1">
+        <span class="svc-tag">Service 02 · Sales & Trend Analytics</span>
+        <div class="svc-price-tag">From $300/month · Automated delivery</div>
+        <h2 class="svc-title">Monitor your store's pulse<br>without lifting a finger.</h2>
+        <p class="svc-desc">Theos Analytics tracks your hourly sales, live end-of-day projections, and revenue metrics — turning raw data from your Shopify, WooCommerce, or CRM system into clear, actionable business intelligence. No dashboards to check, no spreadsheets to update.</p>
+        <p class="svc-desc">Inspired by the automated analytics model pioneered by <strong>theoanalytics.app</strong>, our Sales & Trend Analytics service delivers high-level summaries straight to your inbox exactly when you need them — before your morning coffee, every single day.</p>
+
+        <div class="feat-chips">
+          <div class="feat-chip">
+            <span class="feat-chip-icon">📊</span>
+            <div>
+              <div class="feat-chip-title">Hourly Sales Tracking</div>
+              <div class="feat-chip-desc">Monitor your store's pulse in real time. Hourly revenue, order count, and AOV tracked automatically.</div>
+            </div>
+          </div>
+          <div class="feat-chip">
+            <span class="feat-chip-icon">🎯</span>
+            <div>
+              <div class="feat-chip-title">Live EOD Projections</div>
+              <div class="feat-chip-desc">See your end-of-day revenue projection updated hourly. Know if you're on track before the day ends.</div>
+            </div>
+          </div>
+          <div class="feat-chip">
+            <span class="feat-chip-icon">📬</span>
+            <div>
+              <div class="feat-chip-title">Automated Inbox Delivery</div>
+              <div class="feat-chip-desc">Receive high-level summaries delivered straight to your inbox every morning. The critical numbers, right out of the box.</div>
+            </div>
+          </div>
+          <div class="feat-chip">
+            <span class="feat-chip-icon">🔒</span>
+            <div>
+              <div class="feat-chip-title">Zero Data Retention</div>
+              <div class="feat-chip-desc">We connect via API and process numbers in memory. We never store your historical sales data. Total privacy, guaranteed.</div>
+            </div>
+          </div>
+          <div class="feat-chip">
+            <span class="feat-chip-icon">📉</span>
+            <div>
+              <div class="feat-chip-title">Trend & Anomaly Detection</div>
+              <div class="feat-chip-desc">Automatic alerts when sales dip below forecast, or spike above normal — so you can react in real time.</div>
+            </div>
+          </div>
+          <div class="feat-chip">
+            <span class="feat-chip-icon">🔌</span>
+            <div>
+              <div class="feat-chip-title">Seamless API Integration</div>
+              <div class="feat-chip-desc">Connects to Shopify, WooCommerce, and most CRM platforms via API. Setup takes under 30 minutes.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <a href="contact.html" class="btn btn-primary">Start Sales Analytics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 03 — MARKET ENTRY
+══════════════════════════ -->
+<div class="svc-section" id="market">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="reveal">
+        <span class="svc-tag">Service 03 · Market Entry Research</span>
+        <div class="svc-price-tag">From $500 · 7–10 day turnaround</div>
+        <h2 class="svc-title">Enter new markets with<br>evidence, not instinct.</h2>
+        <p class="svc-desc">Expanding into a new geography, vertical, or customer segment without proper market intelligence is one of the most expensive mistakes a growth company can make. Theos Analytics delivers the structured research that turns a risky bet into a calculated strategic move.</p>
+        <ul class="svc-features">
+          <li>Market sizing — TAM, SAM, SOM with sources cited</li>
+          <li>Competitive landscape in the target market</li>
+          <li>Regulatory and compliance landscape (UK, US, Canada, EU)</li>
+          <li>Customer segment mapping and persona analysis</li>
+          <li>PESTLE analysis for the target geography</li>
+          <li>Entry feasibility score with go/no-go recommendation</li>
+          <li>Recommended market entry strategy (greenfield, partnership, acquisition)</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Commission a Market Study</a>
+      </div>
+      <div class="svc-visual reveal d2">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px;">Market Opportunity Matrix — Sample</div>
+          <!-- Scatter plot -->
+          <div style="position:relative;height:180px;background:var(--bg);border-radius:8px;overflow:hidden;margin-bottom:12px;">
+            <div style="position:absolute;bottom:20px;left:20px;right:20px;height:1px;background:var(--rule);"></div>
+            <div style="position:absolute;top:10px;bottom:20px;left:50%;width:1px;background:var(--rule);"></div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;left:16px;">LOW EASE</div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);bottom:4px;right:8px;">HIGH EASE</div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);top:6px;left:54%;">HIGH VALUE</div>
+            <!-- Market dots -->
+            <div style="position:absolute;left:72%;top:22%;width:28px;height:28px;border-radius:50%;background:rgba(37,99,235,.25);border:2px solid var(--electric);transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:9px;cursor:pointer;" title="Primary target market"></div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7.5px;color:var(--electric);left:72%;top:10%;transform:translateX(-50%);white-space:nowrap;">Primary ★</div>
+            <div style="position:absolute;left:55%;top:40%;width:20px;height:20px;border-radius:50%;background:rgba(217,119,6,.2);border:2px solid var(--gold);transform:translate(-50%,-50%);"></div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--gold);left:58%;top:28%;white-space:nowrap;">Secondary</div>
+            <div style="position:absolute;left:28%;top:35%;width:14px;height:14px;border-radius:50%;background:rgba(100,116,139,.15);border:2px solid var(--faint);transform:translate(-50%,-50%);"></div>
+            <div style="position:absolute;font-family:'DM Mono',monospace;font-size:7px;color:var(--faint);left:20%;top:23%;white-space:nowrap;">Avoid</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+            <div style="background:var(--electric-lt);border-radius:6px;padding:10px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--electric);">£2.4B</div>
+              <div style="font-size:9.5px;color:var(--muted);">Market TAM</div>
+            </div>
+            <div style="background:var(--teal-lt);border-radius:6px;padding:10px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--teal);">68%</div>
+              <div style="font-size:9.5px;color:var(--muted);">Entry Feasibility</div>
+            </div>
+            <div style="background:var(--gold-lt);border-radius:6px;padding:10px;text-align:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gold);">12mo</div>
+              <div style="font-size:9.5px;color:var(--muted);">Break-Even Est.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 04 — GROWTH STRATEGY
+══════════════════════════ -->
+<div class="svc-section" id="growth">
+  <div class="wrap">
+    <div class="svc-layout flip">
+      <div class="svc-visual reveal">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px;">Growth Strategy — Ansoff Matrix Output</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:8px;padding:14px;">
+              <div style="font-size:10px;font-weight:700;color:var(--electric);font-family:'Syne',sans-serif;margin-bottom:4px;">Market Penetration</div>
+              <div style="font-size:11px;color:var(--muted);">Grow share in existing markets with existing products. Lowest risk.</div>
+              <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--electric);">RECOMMENDED ✓</div>
+            </div>
+            <div style="background:rgba(8,145,178,.08);border:1px solid rgba(8,145,178,.2);border-radius:8px;padding:14px;">
+              <div style="font-size:10px;font-weight:700;color:var(--teal);font-family:'Syne',sans-serif;margin-bottom:4px;">Product Development</div>
+              <div style="font-size:11px;color:var(--muted);">New products for existing markets. Medium risk, high upside.</div>
+              <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--teal);">CONSIDER Q3 2026</div>
+            </div>
+            <div style="background:rgba(217,119,6,.08);border:1px solid rgba(217,119,6,.2);border-radius:8px;padding:14px;">
+              <div style="font-size:10px;font-weight:700;color:var(--gold);font-family:'Syne',sans-serif;margin-bottom:4px;">Market Development</div>
+              <div style="font-size:11px;color:var(--muted);">Existing products in new markets. Strong opportunity flagged.</div>
+              <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);">HIGH POTENTIAL</div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:14px;opacity:.6;">
+              <div style="font-size:10px;font-weight:700;color:var(--muted);font-family:'Syne',sans-serif;margin-bottom:4px;">Diversification</div>
+              <div style="font-size:11px;color:var(--muted);">New products, new markets. Highest risk profile.</div>
+              <div style="margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;color:var(--faint);">NOT YET — REVISIT 2027</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <span class="svc-tag">Service 04 · Business Growth Strategy</span>
+        <div class="svc-price-tag">From $750 · 10 day turnaround</div>
+        <h2 class="svc-title">A clear strategic<br>roadmap for the next<br>12–24 months.</h2>
+        <p class="svc-desc">We translate market intelligence into a structured growth strategy — identifying which revenue levers are realistic, which customer segments are underserved, and what your team should do first, second, and third.</p>
+        <ul class="svc-features">
+          <li>Ansoff Matrix analysis — which growth path fits your current position</li>
+          <li>BCG Matrix — where to invest, hold, harvest, or divest</li>
+          <li>Revenue optimisation opportunities across pricing, packaging, and channels</li>
+          <li>Customer retention strategy backed by churn and LTV analysis</li>
+          <li>Digital transformation and operational efficiency recommendations</li>
+          <li>5 prioritised strategic actions with expected impact and risk scoring</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Build Our Growth Strategy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 05 — SALES LEAD INTELLIGENCE
+══════════════════════════ -->
+<div class="svc-section" id="sales">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="reveal">
+        <span class="svc-tag">Service 05 · Sales Lead Intelligence</span>
+        <div class="svc-price-tag">From $400 · 5 day turnaround</div>
+        <h2 class="svc-title">B2B lead research that<br>opens real conversations.</h2>
+        <p class="svc-desc">Generic lead lists don't work. Decision-makers ignore outreach that clearly hasn't done its homework. Theos Analytics builds targeted B2B intelligence databases that give your sales team the context to open with insight — not just a pitch.</p>
+        <p class="svc-desc">Each prospect entry includes company profile, decision-maker names, LinkedIn profiles, estimated revenue, industry pain points, tech stack, and competitor context — everything you need to personalise outreach at scale.</p>
+        <ul class="svc-features">
+          <li>Targeted database of 100–500 qualified prospects per delivery</li>
+          <li>Decision-maker identification — CEO, COO, Heads of relevant departments</li>
+          <li>Company pain point analysis based on sector and size</li>
+          <li>Competitor context — who they currently use, what problems they're solving</li>
+          <li>LinkedIn profiles, email patterns, and outreach recommendations</li>
+          <li>Delivered as Excel / CSV with filtering and scoring built in</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Commission Lead Research</a>
+      </div>
+      <div class="svc-visual reveal d2">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px;">Lead Intelligence Database — Sample Row</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(8,145,178,.05));border:1px solid rgba(37,99,235,.15);border-radius:10px;padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                <div>
+                  <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--navy);">TechCorp Solutions Ltd</div>
+                  <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--electric);margin-top:2px;">B2B SaaS · London, UK · 85 employees</div>
+                </div>
+                <span style="background:var(--emerald-lt);color:var(--emerald);font-size:10px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap;">Score: 94</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11.5px;">
+                <div><span style="color:var(--muted);">Decision Maker:</span><br><span style="color:var(--navy);font-weight:600;">James H., CEO</span></div>
+                <div><span style="color:var(--muted);">Est. Revenue:</span><br><span style="color:var(--navy);font-weight:600;">£3.2M–£4.5M</span></div>
+                <div><span style="color:var(--muted);">Pain Point:</span><br><span style="color:var(--navy);font-weight:600;">Data silos, manual reporting</span></div>
+                <div><span style="color:var(--muted);">Current Tool:</span><br><span style="color:var(--navy);font-weight:600;">HubSpot + custom sheets</span></div>
+              </div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:12px;font-size:12px;">
+              <div style="font-weight:600;color:var(--navy);font-family:'Syne',sans-serif;margin-bottom:4px;">Outreach Recommendation</div>
+              <div style="color:var(--muted);line-height:1.6;">Lead with the manual reporting pain point — they're actively seeking automation. Reference their Q4 LinkedIn post about "spreadsheet fatigue." Mention [Competitor] as a comparison point.</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-family:'DM Mono',monospace;font-size:9px;padding:4px 10px;background:var(--electric-lt);color:var(--electric);border-radius:999px;">LinkedIn ✓</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;padding:4px 10px;background:var(--emerald-lt);color:var(--emerald);border-radius:999px;">Email Verified ✓</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;padding:4px 10px;background:var(--gold-lt);color:var(--gold);border-radius:999px;">CRM-Ready ✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+   SERVICE 06 — INVESTOR REPORTS
+══════════════════════════ -->
+<div class="svc-section" id="investor">
+  <div class="wrap">
+    <div class="svc-layout flip">
+      <div class="svc-visual reveal">
+        <div class="svc-card-main">
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px;">Investor Report — Contents</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:linear-gradient(135deg,rgba(37,99,235,.06),rgba(8,145,178,.06));border:1px solid rgba(37,99,235,.15);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--electric);min-width:28px;">01</span>
+              <span style="font-size:13px;font-weight:600;color:var(--navy);font-family:'Syne',sans-serif;">Executive Summary</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">02</span>
+              <span style="font-size:13px;color:var(--ink2);">Market Size & Opportunity Analysis</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">03</span>
+              <span style="font-size:13px;color:var(--ink2);">Competitive Landscape</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">04</span>
+              <span style="font-size:13px;color:var(--ink2);">Financial Projections & KPI Benchmarks</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">05</span>
+              <span style="font-size:13px;color:var(--ink2);">Risk Assessment & Mitigation</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">06</span>
+              <span style="font-size:13px;color:var(--ink2);">Strategic Recommendations</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--bg);border:1px solid var(--rule);border-radius:8px;">
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);min-width:28px;">07</span>
+              <span style="font-size:13px;color:var(--ink2);">2-Page Board / Investor Brief</span>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:var(--gold-lt);border:1px solid rgba(217,119,6,.2);border-radius:8px;font-size:12px;color:var(--gold);font-weight:600;">
+            ✓ All reports are board-presentation ready — formatted for immediate distribution to investors or directors.
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <span class="svc-tag">Service 06 · Investor & Board Reports</span>
+        <div class="svc-price-tag">From $1,000 · 10–14 day turnaround</div>
+        <h2 class="svc-title">Intelligence that moves<br>investment decisions.</h2>
+        <p class="svc-desc">Whether you're raising a round, presenting to a board, or evaluating an acquisition — your stakeholders need structured, credible, evidence-based intelligence. Theos Analytics produces reports that stand up to scrutiny and move decisions forward.</p>
+        <ul class="svc-features">
+          <li>Business feasibility studies with go/no-go scoring</li>
+          <li>Investor briefing reports formatted for VC and PE audiences</li>
+          <li>Industry outlook and sector intelligence reports</li>
+          <li>Due diligence support — competitive and market analysis</li>
+          <li>Financial KPI benchmarking vs. sector comparables</li>
+          <li>2-page board summary — immediately shareable</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Commission an Investor Report</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="wrap">
+    <div class="eyebrow light reveal" style="justify-content:center;">Ready to Start</div>
+    <h2 class="reveal d1">Not sure which service<br>you need? Let's talk.</h2>
+    <p class="reveal d2">Book a free 30-minute discovery call. We'll map your situation and recommend exactly which intelligence service will move the needle fastest for your business.</p>
+    <div class="reveal d3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Book Discovery Call</a>
+      <a href="index.html#pricing" class="btn btn-outline-white">View Pricing →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="index.html" style="display:inline-flex;margin-bottom:4px;">
+          <div class="logo-mark" style="width:36px;height:36px;">
+            <svg viewBox="0 0 36 36" fill="none" style="width:28px;height:28px;">
+              <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+              <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+              <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+              <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+              <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+              <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+              <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+              <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+            </svg>
+          </div>
+          <span class="logo-name" style="margin-left:10px;">Theos<span>Analytics</span></span>
+        </a>
+        <div class="footer-tagline">Business intelligence and strategic market research — without the consulting firm overhead.</div>
+        <div class="footer-address"><strong>Headquarters</strong>26 Broadway, Manhattan<br>New York, NY 10004, USA</div>
+        <div class="footer-socials">
+          <a class="social-btn" href="#">in</a>
+          <a class="social-btn" href="#">𝕏</a>
+          <a class="social-btn" href="mailto:hello@theosanalytics.co">✉</a>
+        </div>
+      </div>
+      <div class="footer-col"><h6>All Services</h6><ul>
+        <li><a href="#competitive">Competitor Intelligence</a></li>
+        <li><a href="#analytics">Sales & Trend Analytics</a></li>
+        <li><a href="#market">Market Entry Research</a></li>
+        <li><a href="#growth">Growth Strategy</a></li>
+        <li><a href="#sales">Sales Lead Intelligence</a></li>
+        <li><a href="#investor">Investor Reports</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Company</h6><ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="portfolio.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Contact</h6><ul>
+        <li><a href="mailto:hello@theosanalytics.co">hello@theosanalytics.co</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+        <li><a href="#">Upwork Profile</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Theos Analytics LLC · All rights reserved · Manhattan, New York</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Confidentiality</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{if(nav)nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+function toggleMenu(){const m=document.getElementById('mobileMenu');const h=document.querySelector('.hamburger');if(!m)return;const o=m.classList.toggle('open');document.body.style.overflow=o?'hidden':'';if(h){const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';}); }}}
+document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu');if(m?.classList.contains('open')&&!e.target.closest('#mobileMenu,#nav'))toggleMenu();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});const m=document.getElementById('mobileMenu');if(m?.classList.contains('open'))toggleMenu();});});
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Competitor bar chart
+const cb = document.getElementById('compBars');
+if(cb){
+  const data=[{h:88,c:'linear-gradient(to top,#e11d48,#f43f5e)',lbl:'Rival A',v:'88'},{h:72,c:'linear-gradient(to top,#d97706,#f59e0b)',lbl:'Rival B',v:'72'},{h:55,c:'linear-gradient(to top,#0891b2,#06b6d4)',lbl:'Rival C',v:'55'},{h:91,c:'linear-gradient(to top,#7c3aed,#8b5cf6)',lbl:'Rival D',v:'91'},{h:63,c:'linear-gradient(to top,#059669,#10b981)',lbl:'Rival E',v:'63'}];
+  cb.style.cssText='display:flex;align-items:flex-end;gap:8px;height:120px;';
+  data.forEach(d=>{
+    const w=document.createElement('div');
+    w.style.cssText=`flex:1;position:relative;`;
+    const b=document.createElement('div');
+    b.style.cssText=`height:${d.h}%;background:${d.c};border-radius:4px 4px 0 0;transition:height .3s;`;
+    const lbl=document.createElement('div');
+    lbl.style.cssText='position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:8px;font-family:"DM Mono",monospace;color:#94a3b8;white-space:nowrap;';
+    lbl.textContent=d.lbl;
+    const val=document.createElement('div');
+    val.style.cssText='position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:9px;font-family:"DM Mono",monospace;color:#0f172a;font-weight:600;';
+    val.textContent=d.v;
+    w.appendChild(b);w.appendChild(lbl);w.appendChild(val);
+    cb.appendChild(w);
+  });
+}
+
+// Bar animate on scroll
+const bro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;e.target.querySelectorAll('[data-w]').forEach((b,i)=>{b.style.width='0';setTimeout(()=>{b.style.transition=`width 1.3s cubic-bezier(.4,0,.2,1) ${i*80}ms`;b.style.width=b.dataset.w;},100);});bro.unobserve(e.target);});},{threshold:0.3});
+document.querySelectorAll('.chart-animate').forEach(el=>bro.observe(el));
+
+if(window.innerWidth>1024){const glow=Object.assign(document.createElement('div'),{style:'position:fixed;pointer-events:none;z-index:9999;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.06) 0%,transparent 70%);transform:translate(-50%,-50%);transition:left .1s,top .1s;left:-300px;top:-300px;'});document.body.appendChild(glow);document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';},{passive:true});}
+</script>
+</body>
+</html>

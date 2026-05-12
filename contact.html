@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Theos Analytics — 26 Broadway, Manhattan, New York. Book a discovery call or send an enquiry.">
+<title>Contact | Theos Analytics</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/shared.css">
+<style>
+.contact-layout { display:grid; grid-template-columns:1fr 1.3fr; gap:72px; align-items:start; }
+.contact-info-block { display:flex; flex-direction:column; gap:20px; margin-top:36px; }
+.ci { display:flex; align-items:flex-start; gap:16px; }
+.ci-icon { width:44px; height:44px; border-radius:10px; background:rgba(37,99,235,.1); border:1px solid rgba(37,99,235,.15); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.ci-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.ci-val { font-size:14px; color:var(--ink); font-weight:500; }
+.ci-sub { font-size:12px; color:var(--muted); margin-top:2px; }
+.form-card { background:var(--surface); border:1px solid var(--rule); border-radius:16px; padding:40px; box-shadow:0 8px 40px rgba(0,0,0,.06); }
+.form-card-title { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.form-card-sub { font-size:13px; color:var(--muted); margin-bottom:28px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.fg { display:flex; flex-direction:column; gap:6px; }
+.fg.full { grid-column:span 2; }
+.fl { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+.fi, .fs, .ft {
+  border:1px solid var(--rule); border-radius:6px; padding:12px 14px;
+  font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink);
+  background:var(--bg); transition:border-color .2s; outline:none;
+  -webkit-appearance:none;
+}
+.fi:focus, .fs:focus, .ft:focus { border-color:var(--electric); background:var(--surface); box-shadow:0 0 0 3px rgba(37,99,235,.08); }
+.ft { resize:vertical; min-height:110px; }
+.fs { cursor:pointer; }
+.fsub {
+  grid-column:span 2; width:100%; padding:15px;
+  background:linear-gradient(135deg,var(--electric),var(--teal));
+  color:white; font-family:'Syne',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; border:none; border-radius:6px;
+  cursor:pointer; transition:all .25s; box-shadow:0 4px 16px rgba(37,99,235,.35); margin-top:6px;
+}
+.fsub:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.5); }
+
+/* Map embed */
+.map-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--rule); height:260px; margin-top:32px; background:var(--bg); display:flex; align-items:center; justify-content:center; position:relative; }
+.map-placeholder { text-align:center; }
+.map-placeholder h4 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.map-placeholder p { font-size:12.5px; color:var(--muted); }
+.map-pin { font-size:32px; display:block; margin-bottom:12px; }
+
+/* Domain guide */
+.domain-guide { background:var(--navy); padding:80px 0; }
+.domain-guide h2 { color:white; }
+.domain-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+.ds { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:28px 24px; }
+.ds-num { font-family:'DM Mono',monospace; font-size:28px; font-weight:300; color:rgba(255,255,255,.1); margin-bottom:16px; line-height:1; }
+.ds-title { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; color:white; margin-bottom:10px; }
+.ds-desc { font-size:12.5px; color:rgba(255,255,255,.45); line-height:1.7; }
+.code-block { background:rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:16px; margin-top:14px; font-family:'DM Mono',monospace; font-size:11px; color:#06b6d4; line-height:1.8; overflow-x:auto; white-space:pre; }
+.dns-table { width:100%; border-collapse:collapse; margin-top:12px; font-family:'DM Mono',monospace; font-size:10px; }
+.dns-table th { background:rgba(37,99,235,.2); color:rgba(255,255,255,.6); padding:8px 10px; text-align:left; }
+.dns-table td { padding:7px 10px; border-bottom:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.5); }
+.dns-table td:first-child { color:var(--teal2); }
+
+@media(max-width:900px){
+  .contact-layout { grid-template-columns:1fr; gap:40px; }
+  .domain-steps { grid-template-columns:1fr; }
+  .form-grid { grid-template-columns:1fr; }
+  .fg.full, .fsub { grid-column:span 1; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" class="light-nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+          <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+          <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+          <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+          <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+          <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+          <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+          <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+        </svg>
+      </div>
+      <div class="logo-name">Theos<span>Analytics</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Case Studies</a></li>
+      <li><a href="index.html#companies">Clients</a></li>
+      <li><a href="intelligence.html">Intelligence</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-contact mono">hello@theosanalytics.co</span>
+      <a href="#form" class="nav-cta">Send Enquiry →</a>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="toggleMenu()">About</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Case Studies</a>
+  <a href="team.html" onclick="toggleMenu()">Our Team</a>
+  <a href="index.html#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="wrap page-hero-inner">
+    <div class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+    <div class="eyebrow light reveal">Get In Touch</div>
+    <h1 class="reveal d1">Let's build your<br><span style="background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">intelligence edge.</span></h1>
+    <p class="reveal d2">Start with a free 30-minute discovery call. No pitch, no pressure — just a structured conversation about your market, your competitors, and what intelligence will actually move the needle for your business.</p>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section id="form">
+  <div class="wrap">
+    <div class="contact-layout">
+
+      <div class="reveal">
+        <div class="eyebrow">Reach the Team</div>
+        <h2 style="margin-bottom:12px;">Four ways<br>to connect.</h2>
+        <p style="color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:0;">We respond to every genuine enquiry within 24 hours on business days. For urgent requests, email directly — we're typically quicker than the form.</p>
+
+        <div class="contact-info-block">
+          <div class="ci">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Headquarters</div>
+              <div class="ci-val">26 Broadway, Manhattan</div>
+              <div class="ci-sub">New York, NY 10004, United States</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">Email (Fastest Response)</div>
+              <div class="ci-val"><a href="mailto:hello@theosanalytics.co" style="color:var(--electric);">hello@theosanalytics.co</a></div>
+              <div class="ci-sub">Typically reply within 4–8 hours</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">💼</div>
+            <div>
+              <div class="ci-label">LinkedIn</div>
+              <div class="ci-val">Theos Analytics</div>
+              <div class="ci-sub">Message us directly for fast replies</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <div class="ci-label">Also Available On</div>
+              <div class="ci-val">Upwork · Fiverr Pro · Contra</div>
+              <div class="ci-sub">Reviews and verified work history visible</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">⏱️</div>
+            <div>
+              <div class="ci-label">Response Time & Hours</div>
+              <div class="ci-val">Within 24 hours</div>
+              <div class="ci-sub">Monday–Friday · Eastern Time (ET) · Global projects welcome</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder — replace iframe src with real Google Maps embed -->
+        <div class="map-wrap">
+          <div class="map-placeholder">
+            <span class="map-pin">📍</span>
+            <h4>26 Broadway, Manhattan</h4>
+            <p>New York, NY 10004, USA</p>
+            <p style="margin-top:8px;font-size:11px;color:var(--faint);">Replace this block with a Google Maps iframe embed</p>
+          </div>
+        </div>
+        <!-- 
+          TO EMBED REAL MAP: replace the .map-wrap div above with:
+          <div class="map-wrap" style="padding:0;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+              width="100%" height="260" style="border:0;" allowfullscreen loading="lazy">
+            </iframe>
+          </div>
+          Get embed URL: maps.google.com → search address → Share → Embed a map
+        -->
+      </div>
+
+      <div class="form-card reveal d1" id="enquiry-form">
+        <div class="form-card-title">Start Your Engagement</div>
+        <div class="form-card-sub">Fill in the brief below and we'll come back with a structured proposal within 24 hours.</div>
+        <div class="form-grid">
+          <div class="fg">
+            <label class="fl">First Name *</label>
+            <input type="text" class="fi" placeholder="Your first name" id="fname">
+          </div>
+          <div class="fg">
+            <label class="fl">Last Name *</label>
+            <input type="text" class="fi" placeholder="Your last name" id="lname">
+          </div>
+          <div class="fg">
+            <label class="fl">Company *</label>
+            <input type="text" class="fi" placeholder="Company name" id="company">
+          </div>
+          <div class="fg">
+            <label class="fl">Email *</label>
+            <input type="email" class="fi" placeholder="your@company.com" id="email">
+          </div>
+          <div class="fg">
+            <label class="fl">Country / Market</label>
+            <select class="fs fi" id="country">
+              <option value="" disabled selected>Select market</option>
+              <option>United Kingdom</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Europe</option>
+              <option>India / Asia</option>
+              <option>Other / Global</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Budget Range</label>
+            <select class="fs fi" id="budget">
+              <option value="" disabled selected>Select range</option>
+              <option>Under $500</option>
+              <option>$500 – $1,500</option>
+              <option>$1,500 – $5,000</option>
+              <option>$5,000+ / Retainer</option>
+            </select>
+          </div>
+          <div class="fg full">
+            <label class="fl">Service Needed *</label>
+            <select class="fs fi" id="service">
+              <option value="" disabled selected>Select a service</option>
+              <option>Competitor Intelligence Report</option>
+              <option>Market Entry Research</option>
+              <option>Business Growth Strategy</option>
+              <option>Sales & Lead Intelligence</option>
+              <option>Sales & Trend Analytics (Automated)</option>
+              <option>Investor / Board Report</option>
+              <option>Advisory Retainer (Monthly)</option>
+              <option>Custom Scope — Let's Talk</option>
+            </select>
+          </div>
+          <div class="fg full">
+            <label class="fl">Your Brief *</label>
+            <textarea class="ft fi" id="brief" placeholder="Tell us: your industry, who your main competitors are, the market you operate in, and what decision this intelligence needs to support. The more detail you give, the sharper our proposal will be."></textarea>
+          </div>
+          <button class="fsub" onclick="submitForm(event)">Send Enquiry — We'll Reply Within 24hrs →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOMAIN GUIDE -->
+<section class="domain-guide">
+  <div class="wrap">
+    <div class="eyebrow light reveal">Custom Domain Setup</div>
+    <h2 class="reveal d1" style="color:white;margin-bottom:12px;">How to connect your<br>personal domain.</h2>
+    <p class="reveal d2" style="color:rgba(255,255,255,.45);max-width:540px;margin-bottom:0;">Switch from <code style="color:var(--teal2);font-family:'DM Mono',monospace;">yourusername.github.io/theosanalytics</code> to your own domain like <code style="color:var(--gold2);font-family:'DM Mono',monospace;">theosanalytics.co</code> in 4 steps.</p>
+
+    <div class="domain-steps">
+
+      <div class="ds reveal">
+        <div class="ds-num">01</div>
+        <div class="ds-title">Buy Your Domain</div>
+        <div class="ds-desc">Purchase your domain from any registrar. Recommended options for best value and control:</div>
+        <div class="code-block">Namecheap.com   ← Best value
+Cloudflare.com  ← Best DNS control
+GoDaddy.com     ← Most popular
+Porkbun.com     ← Cheapest .co domains</div>
+        <div class="ds-desc" style="margin-top:12px;">Search for: <span style="color:var(--teal2);">theosanalytics.co</span> or <span style="color:var(--teal2);">theosanalytics.com</span></div>
+      </div>
+
+      <div class="ds reveal d1">
+        <div class="ds-num">02</div>
+        <div class="ds-title">Add the CNAME File to GitHub</div>
+        <div class="ds-desc">In your GitHub repository, the <code style="color:var(--teal2);">CNAME</code> file already exists. Edit it to contain only your domain:</div>
+        <div class="code-block">theosanalytics.co</div>
+        <div class="ds-desc" style="margin-top:12px;">Then commit the change. GitHub will automatically recognise this as your custom domain.</div>
+      </div>
+
+      <div class="ds reveal d2">
+        <div class="ds-num">03</div>
+        <div class="ds-title">Add DNS Records at Your Registrar</div>
+        <div class="ds-desc">Go to your domain registrar → DNS settings → Add these records exactly:</div>
+        <table class="dns-table">
+          <tr><th>Type</th><th>Name</th><th>Value</th></tr>
+          <tr><td>A</td><td>@</td><td>185.199.108.153</td></tr>
+          <tr><td>A</td><td>@</td><td>185.199.109.153</td></tr>
+          <tr><td>A</td><td>@</td><td>185.199.110.153</td></tr>
+          <tr><td>A</td><td>@</td><td>185.199.111.153</td></tr>
+          <tr><td>CNAME</td><td>www</td><td>yourusername.github.io</td></tr>
+        </table>
+      </div>
+
+      <div class="ds reveal">
+        <div class="ds-num">04</div>
+        <div class="ds-title">Enable HTTPS in GitHub Pages</div>
+        <div class="ds-desc">After DNS propagates (15 min – 24 hrs):</div>
+        <div class="code-block">GitHub Repo
+→ Settings
+→ Pages
+→ Custom domain: theosanalytics.co
+→ ✅ Enforce HTTPS  ← tick this</div>
+        <div class="ds-desc" style="margin-top:12px;">Your site is now live at <span style="color:var(--gold2);">https://theosanalytics.co</span> with a free SSL certificate. Done.</div>
+      </div>
+
+      <div class="ds reveal d1">
+        <div class="ds-num">05</div>
+        <div class="ds-title">Change the Company Name Site-Wide</div>
+        <div class="ds-desc">To rename from "Theos Analytics" to a new brand name across all pages:</div>
+        <div class="code-block"># In VS Code or any text editor:
+# Find & Replace All (Ctrl+H / Cmd+H)
+
+Find:    Theos Analytics
+Replace: [Your New Name]
+
+Find:    theosanalytics
+Replace: [yourdomainslug]
+
+Find:    hello@theosanalytics.co
+Replace: hello@[yourdomain].co</div>
+        <div class="ds-desc" style="margin-top:10px;">Run this across all <code style="color:var(--teal2);">.html</code> and <code style="color:var(--teal2);">.css</code> files. Done in under 60 seconds.</div>
+      </div>
+
+      <div class="ds reveal d2">
+        <div class="ds-num">06</div>
+        <div class="ds-title">Alternative: Deploy on Netlify (Easiest)</div>
+        <div class="ds-desc">If GitHub Pages is still giving trouble, Netlify is simpler:</div>
+        <div class="code-block">1. Go to netlify.com
+2. Sign up free (use GitHub login)
+3. "Add new site" → Deploy manually
+4. Drag & drop the unzipped folder
+5. Live in &lt;60 seconds
+6. Site Settings → Domain Management
+   → Add custom domain → follow steps</div>
+        <div class="ds-desc" style="margin-top:10px;">Netlify also provides free form handling — meaning the contact form will work with zero backend code.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="index.html" style="display:inline-flex;margin-bottom:4px;">
+          <div class="logo-mark" style="width:36px;height:36px;">
+            <svg viewBox="0 0 36 36" fill="none" style="width:28px;height:28px;">
+              <rect x="3"  y="22" width="6"  height="10" rx="1" fill="rgba(255,255,255,.9)"/>
+              <rect x="11" y="16" width="6"  height="16" rx="1" fill="rgba(255,255,255,.7)"/>
+              <rect x="19" y="10" width="6"  height="22" rx="1" fill="rgba(255,255,255,.5)"/>
+              <rect x="27" y="18" width="6"  height="14" rx="1" fill="rgba(255,255,255,.7)"/>
+              <polyline points="6,20 14,13 22,7 30,15" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="6"  cy="20" r="2" fill="#06b6d4"/>
+              <circle cx="14" cy="13" r="2" fill="#06b6d4"/>
+              <circle cx="22" cy="7"  r="2" fill="#f59e0b"/>
+              <circle cx="30" cy="15" r="2" fill="#06b6d4"/>
+            </svg>
+          </div>
+          <span class="logo-name" style="margin-left:10px;">Theos<span>Analytics</span></span>
+        </a>
+        <div class="footer-tagline">Business intelligence and strategic market research for growth companies — without the consulting firm overhead.</div>
+        <div class="footer-address"><strong>Headquarters</strong>26 Broadway, Manhattan<br>New York, NY 10004, USA</div>
+        <div class="footer-socials">
+          <a class="social-btn" href="#">in</a>
+          <a class="social-btn" href="#">𝕏</a>
+          <a class="social-btn" href="mailto:hello@theosanalytics.co">✉</a>
+        </div>
+      </div>
+      <div class="footer-col"><h6>Services</h6><ul>
+        <li><a href="services.html">Competitor Intelligence</a></li>
+        <li><a href="services.html">Market Research</a></li>
+        <li><a href="services.html">Growth Strategy</a></li>
+        <li><a href="services.html">Sales Analytics</a></li>
+        <li><a href="services.html">Investor Reports</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Company</h6><ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="portfolio.html">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Quick Links</h6><ul>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="intelligence.html">Intelligence Hub</a></li>
+        <li><a href="team.html">Meet the Team</a></li>
+        <li><a href="#">Upwork Profile</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Theos Analytics LLC · All rights reserved · Manhattan, New York</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Confidentiality</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{if(nav)nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+function toggleMenu(){const m=document.getElementById('mobileMenu');const h=document.querySelector('.hamburger');if(!m)return;const o=m.classList.toggle('open');document.body.style.overflow=o?'hidden':'';if(h){const s=h.querySelectorAll('span');if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';}); }}}
+document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu');if(m?.classList.contains('open')&&!e.target.closest('#mobileMenu,#nav'))toggleMenu();});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});});});
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+function submitForm(e) {
+  e.preventDefault();
+  const required = ['fname','lname','company','email','service','brief'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el || !el.value.trim()) {
+      if(el) el.style.borderColor = '#e11d48';
+      valid = false;
+    } else {
+      if(el) el.style.borderColor = '';
+    }
+  });
+  const btn = e.target;
+  if (!valid) {
+    btn.textContent = '⚠ Please fill in all required fields';
+    btn.style.background = 'linear-gradient(135deg,#e11d48,#f43f5e)';
+    setTimeout(()=>{ btn.textContent='Send Enquiry — We\'ll Reply Within 24hrs →'; btn.style.background=''; },3000);
+    return;
+  }
+  btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
+  btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+  btn.disabled = true;
+  setTimeout(()=>{ btn.textContent='Send Enquiry — We\'ll Reply Within 24hrs →'; btn.style.background=''; btn.disabled=false; required.forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});},6000);
+}
+</script>
+</body>
+</html>
